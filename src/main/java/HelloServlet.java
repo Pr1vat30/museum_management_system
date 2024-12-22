@@ -1,5 +1,3 @@
-package com.example.museum_management_system;
-
 import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
