@@ -1,6 +1,7 @@
 package museum_management_system.Application.Dto;
 
 import museum_management_system.Storage.Util.CrittografiaUtils;
+import museum_management_system.Storage.Utils.Cryptography;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -15,7 +16,7 @@ public class UserDTO {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.password = CrittografiaUtils.getMD5(password);
+        this.password = Cryptography.toHash(password);
         this.telefono = telefono;
     }
 
