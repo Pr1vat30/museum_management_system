@@ -10,27 +10,24 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "authServlet", value = "/auth-servlet")
-public class AuthServlet extends HttpServlet {
+@WebServlet(name = "accessServlet", value = "/access-servlet")
+public class AccessController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         if (request.getParameter("pg") == null) {
-            home(request, response);
+            homepage(request, response);
         } else {
             switch (request.getParameter("pg")) {
-                case "home":
-                    home(request, response);
+                case "homepage":
+                    homepage(request, response);
                     break;
                 case "login":
                     login(request, response);
                     break;
-                case "logout":
-                    logout(request, response);
-                    break;
-                case "admin":
-                    home(request, response);
+                case "signup":
+                    signup(request, response);
                     break;
                 default:
                     System.out.println("Invalid page parameter");
@@ -39,7 +36,7 @@ public class AuthServlet extends HttpServlet {
         }
     }
 
-    public void home(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void homepage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String address = "/index.jsp";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
@@ -47,18 +44,16 @@ public class AuthServlet extends HttpServlet {
     }
 
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String address = "/WEB-INF/Views/login.jsp";
+        String address = "/WEB-INF/pages/login.jsp";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }
 
-    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession(false);
+    private void signup(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String address = "/WEB-INF/pages/signup.jsp";
 
-        if (session != null)
-            session.invalidate();
-
-        home(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+        dispatcher.forward(request, response);
     }
 }

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Registrazione Utente</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/signup.css">
-    <script src="${pageContext.request.contextPath}/scripts/signup.js" defer></script>
   </head>
   <body>
   <header>
@@ -73,6 +72,7 @@
   <footer>
     <jsp:include page="footer.jsp"/>
   </footer>
+  <script src="${pageContext.request.contextPath}/scripts/signup.js" defer></script>
   </body>
   </html>
 

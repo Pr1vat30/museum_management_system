@@ -55,7 +55,7 @@ async function checkUser(email, password) {
     const body = new URLSearchParams({ email, password });
 
     try {
-        const response = await fetch("login-servlet", {
+        const response = await fetch("auth-servlet?op=login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

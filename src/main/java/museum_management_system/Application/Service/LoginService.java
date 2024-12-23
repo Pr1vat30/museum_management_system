@@ -1,27 +1,14 @@
-package museum_management_system.Presentation.Controllers;
+package museum_management_system.Application.Service;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "loginServlet", value = "/login-servlet")
-public class LoginServlet extends HttpServlet {
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
-        login(request, response);
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
+public class LoginService extends HttpServlet {
 
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         MockDao dao = new MockDao();
@@ -39,9 +26,9 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("logged", true);
 
             if( user.getRole() ) {
-                response.getWriter().println("auth-servlet?pg=admin");
+                response.getWriter().println("access-servlet?pg=homepage");
             } else  {
-                response.getWriter().println("auth-servlet?pg=home");
+                response.getWriter().println("access-servlet?pg=homepage");
             }
 
         } else response.getWriter().write("error");

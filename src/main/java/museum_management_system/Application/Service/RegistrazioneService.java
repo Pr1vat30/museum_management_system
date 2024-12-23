@@ -1,16 +1,14 @@
 package museum_management_system.Application.Service;
 
-import museum_management_system.Application.Dto.UserDTO;
-
-import java.util.regex.Pattern;
+import museum_management_system.Storage.Model.User;
 
 public class RegistrazioneService {
 
     public RegistrazioneService() {}
 
-    public boolean saveUser(UserDTO userDTO) {
+    public boolean saveUser(User user) {
         //VERIFICA DEI DATI
-        if(validaDatiUtente(userDTO)) {
+        if(validaDatiUtente(user)) {
             //SALVO I DATI DELL'UTENTE NEL DATABASE COME NUOVO UTENTE
             /*
             UserDAOImpl conn = new UserDAOImpl(DatabaseConnection.getConnection());
@@ -22,30 +20,30 @@ public class RegistrazioneService {
         return false;
     }
 
-    public boolean updateUser(UserDTO userDTO, UserDTO newUserDTO) {
+    public boolean updateUser(User user, User newUser) {
         return true;
     }
-    public boolean deleteUser(UserDTO userDTO) {
+    public boolean deleteUser(User user) {
         return true;
     }
 
-    public boolean validaDatiUtente(UserDTO userDTO) {
+    public boolean validaDatiUtente(User user) {
         // Verifica che nome e cognome non siano vuoti
-        if (userDTO.getNome() == null || userDTO.getNome().trim().isEmpty()) {
+        if (user.getNome() == null || user.getNome().trim().isEmpty()) {
             return false;
         }
 
-        if (userDTO.getCognome() == null || userDTO.getCognome().trim().isEmpty()) {
+        if (user.getCognome() == null || user.getCognome().trim().isEmpty()) {
             return false;
         }
 
         // Verifica che l'email sia valida
-        if (userDTO.getEmail() == null || userDTO.getEmail().trim().isEmpty()) {
+        if (user.getEmail() == null || user.getEmail().trim().isEmpty()) {
             return false;
         }
 
         // Verifica che il numero di telefono sia valido
-        if (userDTO.getTelefono() == null || userDTO.getTelefono().trim().isEmpty()) {
+        if (user.getTelefono() == null || user.getTelefono().trim().isEmpty()) {
             return false;
         }
         return true;  // Tutti i dati sono validi

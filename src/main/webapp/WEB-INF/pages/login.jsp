@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href=./Styles/login.css>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/login.css">
     <title>Access Page</title>
 </head>
 <body>
@@ -53,7 +53,7 @@
         </div>
     </div>
 </section>
-<script src="./Scripts/login.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/login.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -6,8 +6,9 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<a href="auth-servlet?pg=login">login</a><br>
-<a href="auth-servlet?pg=logout">logout</a><br>
+<a href="access-servlet?pg=login">login</a><br>
+<a href="auth-servlet?op=logout">logout</a><br>
+<a href="access-servlet?pg=signup">signup</a><br>
 
 <c:choose>
     <c:when test="${sessionScope.logged == true}">
