@@ -8,6 +8,9 @@
     <script src="${pageContext.request.contextPath}/scripts/signup.js" defer></script>
   </head>
   <body>
+  <header>
+    <jsp:include page="header.jsp"/>
+  </header>
   <div class="form-container">
     <h2>Registrazione</h2>
     <form id="registrationForm" action="${pageContext.request.contextPath}//registrazione" method="post">
@@ -67,6 +70,9 @@
       <button type="submit">Registrati</button>
     </form>
   </div>
+  <footer>
+    <jsp:include page="footer.jsp"/>
+  </footer>
   </body>
   </html>
 

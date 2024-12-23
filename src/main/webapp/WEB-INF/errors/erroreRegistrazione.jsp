@@ -12,6 +12,7 @@
   <div class="error-message">
     <h1>Errore nella registrazione</h1>
     <p>Sembra che ci sia stato un problema con la tua registrazione. Per favore, riprova.</p>
+    <p>Se il problema persiste riprova più tardi.</p>
     <a href="${pageContext.request.contextPath}//registrazione" class="retry-button">Riprova</a>
   </div>
 </div>
