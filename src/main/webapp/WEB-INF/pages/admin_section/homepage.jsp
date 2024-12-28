@@ -12,7 +12,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/admin_section/admin_section.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/admin_section/homepage.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/admin_section/navbar.css">
     <title>Dashboard Page</title>
 </head>

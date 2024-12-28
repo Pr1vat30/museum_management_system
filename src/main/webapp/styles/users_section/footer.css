@@ -1,49 +1,66 @@
-/* Footer */
 footer {
-    background-color: #333;
+    padding: 50px 20px 0 20px;
+}
+
+.footer {
+    padding: 40px 0;
+    border-radius: 8px;
     color: white;
     text-align: center;
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    background-color: #0171d3;
 }
 
-footer .social-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 5px 0 0;
+.footer .social {
+    padding-bottom: 25px;
+    color: #ffffff;
 }
 
-footer .social-links li {
-    display: inline;
+.footer .social a {
+    font-size: 24px;
+    color: #ffffff;
     margin: 0 8px;
+    opacity: 0.8;
 }
 
-footer .social-links li a {
-    color: white;
+.footer .social a .icon {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.footer .social a:hover {
+    opacity: 1;
+}
+
+.footer ul {
+    padding-bottom: 20px;
+    font-size: 16px;
+    list-style: none;
+}
+
+.footer ul li a {
+    color: #ffffff;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
+    opacity: 0.8;
 }
 
-footer .social-links li a:hover {
-    color: #00aced; /* Azzurro per il link hover */
+.footer ul li {
+    display: inline-block;
+    padding: 10px 15px;
 }
 
-/* Media Query per dispositivi mobili */
+.footer ul li a:hover {
+    opacity: 1;
+}
+
+.footer .copyright {
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
     footer {
-        font-size: 0.8rem;
-        padding: 8px 10px;
-    }
-
-    footer .social-links li {
-        margin: 0 5px;
+        padding: 50px 0 0 0;
     }
 }
-

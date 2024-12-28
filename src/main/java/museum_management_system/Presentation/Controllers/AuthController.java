@@ -51,7 +51,7 @@ public class AuthController extends HttpServlet {
             session.setAttribute("logged", true);
 
             if( user instanceof User ) {
-                response.getWriter().println("access-servlet?pg=homepage");
+                response.getWriter().println("users-nav-servlet?pg=homepage");
             } else if ( user instanceof Admin) {
                 response.getWriter().println("admin-nav-servlet?pg=homepage");
             }
