@@ -1,78 +1,94 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  <!DOCTYPE html>
-  <html>
-  <head>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Registrazione Utente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/login.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/signup.css">
-  </head>
-  <body>
-  <header>
-    <jsp:include page="header.jsp"/>
-  </header>
-  <div class="form-container">
-    <h2>Registrazione</h2>
-    <form id="registrationForm" action="${pageContext.request.contextPath}//registrazione" method="post">
-      <!-- Nome -->
-      <label for="nome">Nome</label>
-      <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Inserisci il tuo nome"
-              required
-              title="Il nome è obbligatorio e non può essere vuoto.">
 
-      <!-- Cognome -->
-      <label for="cognome">Cognome</label>
-      <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              placeholder="Inserisci il tuo cognome"
-              required
-              title="Il cognome è obbligatorio e non può essere vuoto.">
+    <title>Registration Page</title>
+</head>
+<body>
+<section class="container signup-form">
+    <div class="form signup">
+        <div class="form-content">
+            <header>Sign Up</header>
+            <form action="#" method="post">
+                <div class="section">
+                    <label>User Credentials</label>
 
-      <!-- Email -->
-      <label for="email">Email</label>
-      <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Inserisci la tua email"
-              required
-              title="Inserisci un'email valida.">
+                    <div class="column">
+                        <div class="field input-field">
+                            <label>Full Name</label>
+                            <input type="text" name="username" placeholder="Enter full name" required>
+                        </div>
+                        <div class="field input-field">
+                            <label>Phone Number</label>
+                            <input type="text" name="phone" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
 
-      <!-- Password -->
-      <label for="password">Password</label>
-      <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Inserisci la tua password"
-              required
-              minlength="8"
-              title="La password deve contenere almeno 8 caratteri.">
+                    <div class="field email-field">
+                        <div class="input-field">
+                            <label>Email Address</label>
+                            <input type="email" id="email" class="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
 
-      <!-- Numero di telefono -->
-      <label for="telefono">Numero di Telefono</label>
-      <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              placeholder="Inserisci il tuo numero di telefono"
-              required
-              pattern="^\d{9,15}$"
-              title="Inserisci un numero di telefono valido con una lunghezza compresa tra 9 e 15 cifre.">
+                    <div class="field password-field">
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" id="password" class="password" name="password" placeholder="Enter password" required>
+                            <i class='bx bxs-hide eye-icon'></i>
+                        </div>
+                    </div>
 
-      <!-- Bottone di invio -->
-      <button type="submit">Registrati</button>
-    </form>
-  </div>
-  <footer>
-    <jsp:include page="footer.jsp"/>
-  </footer>
-  <script src="${pageContext.request.contextPath}/scripts/signup.js" defer></script>
-  </body>
-  </html>
+                    <div class="field c_password-field">
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input type="password" id="c_password" class="password" name="c_password" placeholder="Confirm password" required>
+                            <i class='bx bxs-hide eye-icon'></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <label>Payment Method</label>
+
+                    <div class="field input-field">
+                        <label>Card Number</label>
+                        <input type="text" name="card_number" placeholder="Enter card number" required>
+                    </div>
+
+                    <div class="column">
+                        <div class="field input-field">
+                            <label>Card Expiry Date</label>
+                            <input type="text" name="card_expiry_date" placeholder="Enter expiry date" required>
+                        </div>
+                        <div class="field input-field">
+                            <label>Card Secret Code</label>
+                            <input type="text" name="card_secret_code" placeholder="Enter secret code" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit">Sign Up</button>
+                </div>
+
+                <div class="form-link">
+                    <span>Already have an account? <a href="access-servlet?pg=login" class="link login-link">Login</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="${pageContext.request.contextPath}/scripts/signup.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</section>
+</body>
+</html>
 

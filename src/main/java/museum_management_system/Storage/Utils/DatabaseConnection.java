@@ -11,10 +11,12 @@ public class DatabaseConnection implements ServletContextListener {
     private static final String USER = "user";
     private static final String PASSWORD = "password";
 
-    public static void testConnection() {
+    public static Connection connection = null;
+
+    public static void StartConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connection to database established.");
         } catch (Exception e) {
             e.printStackTrace();
@@ -26,7 +28,7 @@ public class DatabaseConnection implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Initializing database connection...");
         try {
-            testConnection();
+            StartConnection();
         } catch (Exception e) {
             System.err.println("Failed to connect to the database during startup.");
         }

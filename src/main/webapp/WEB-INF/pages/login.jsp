@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="form-link">
-                    <span>Don't have an account? <a href="#" class="link signup-link">Sign Up</a></span>
+                    <span>Don't have an account? <a href="access-servlet?pg=signup" class="link signup-link">Sign Up</a></span>
                 </div>
             </form>
         </div>

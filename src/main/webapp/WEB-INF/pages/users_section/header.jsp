@@ -10,7 +10,7 @@
         <a href="index.jsp">Museum Management System</a>
     </div>
     <div class="user-actions">
-        <a href="login.jsp" class="login-link">Login</a> <!-- Solo se non è loggato -->
+        <a href="../login.jsp" class="login-link">Login</a> <!-- Solo se non è loggato -->
         <a href="account.jsp" class="account-link">Account</a> <!-- Solo se loggato -->
         <button class="menu-toggle" id="menu-toggle">☰</button>
     </div>

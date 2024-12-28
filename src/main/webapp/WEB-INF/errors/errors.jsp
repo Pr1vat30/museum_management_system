@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Errore Registrazione</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/erroreRegistrazione.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/users_section/erroreRegistrazione.css">
 </head>
 <body>
 <div class="container">

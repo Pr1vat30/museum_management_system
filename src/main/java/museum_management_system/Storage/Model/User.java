@@ -1,38 +1,45 @@
 package museum_management_system.Storage.Model;
 
-
-import museum_management_system.Storage.Utils.Cryptography;
-import java.security.NoSuchAlgorithmException;
-
 public class User {
-    String nome;
-    String cognome;
-    String email;
-    String password;
-    String telefono;
+    private int user_id;
+    private String name;
+    private String email;
+    private String password;
+    private String phone;
 
-    public User(String nome, String cognome, String email, String password, String telefono) throws NoSuchAlgorithmException {
-        this.nome = nome;
-        this.cognome = cognome;
+    public User(int user_id, String name, String email, String password, String phone) {
+        this.user_id = user_id;
+        this.name = name;
         this.email = email;
-        this.password = Cryptography.toHash(password);
-        this.telefono = telefono;
+        this.password = password;
+        this.phone = phone;
     }
 
-    public String getNome() {
-        return nome;
+    public User(String name, String email, String password, String phone) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public User() {}
+
+    public String getRole() { return "user"; }
+
+    public int getUser_id() {
+        return user_id;
     }
 
-    public String getCognome() {
-        return cognome;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -51,11 +58,11 @@ public class User {
         this.password = password;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

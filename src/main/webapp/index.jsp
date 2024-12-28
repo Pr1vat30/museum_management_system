@@ -14,14 +14,14 @@
     <c:when test="${sessionScope.logged == true}">
         <c:set var="user" value="${sessionScope.user}" />
         <c:choose>
-            <c:when test="${user.role == true}">
+            <c:when test="${user.role == 'admin'}">
                 <h1>Welcome, Admin!</h1>
                 <p>You have administrative privileges.</p>
             </c:when>
-            <c:otherwise>
+            <c:when test="${user.role == 'user'}">
                 <h1>Welcome, User!</h1>
                 <p>You have standard user access.</p>
-            </c:otherwise>
+            </c:when>
         </c:choose>
     </c:when>
     <c:otherwise>
