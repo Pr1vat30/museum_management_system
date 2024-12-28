@@ -73,7 +73,13 @@ async function checkUser(email, password) {
                     text: "Something went wrong!"
                 });
             } else {
-                // sessionStorage.removeItem('cart');
+                history.pushState(null, null, location.href);
+
+                window.addEventListener("popstate", function () {
+                    history.pushState(null, null, location.href);
+                });
+
+                // Cambia pagina
                 window.location.replace(responseText);
             }
         } else {

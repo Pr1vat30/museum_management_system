@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Errore Registrazione</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/users_section/erroreRegistrazione.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/errors_section/errors.css">
 </head>
 <body>
 <div class="container">
@@ -13,7 +13,7 @@
     <h1>Errore nella registrazione</h1>
     <p>Sembra che ci sia stato un problema con la tua registrazione. Per favore, riprova.</p>
     <p>Se il problema persiste riprova più tardi.</p>
-    <a href="${pageContext.request.contextPath}//registrazione" class="retry-button">Riprova</a>
+    <a href="access-servlet?pg=signup" class="retry-button">Riprova</a>
   </div>
 </div>
 </body>

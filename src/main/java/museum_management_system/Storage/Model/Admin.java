@@ -1,101 +1,101 @@
 package museum_management_system.Storage.Model;
 
 public class Admin {
-    private int adminId;
-    private String adminCf;
-    private String adminName;
-    private String adminSurname;
-    private String adminPassword;
-    private String adminEmail;
-    private String adminPhone;
-    private double adminSalary;
+    private int admin_id;
+    private String admin_cf;
+    private String name;
+    private String surname;
+    private String password;
+    private String email;
+    private String phone;
+    private double salary;
 
     public Admin(int id, String cf, String name, String surname, String password, String email, String phone, double salary) {
-        this.adminId = id;
-        this.adminCf = cf;
-        this.adminName = name;
-        this.adminSurname = surname;
-        this.adminPassword = password;
-        this.adminEmail = email;
-        this.adminPhone = phone;
-        this.adminSalary = salary;
+        this.admin_id = id;
+        this.admin_cf = cf;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.salary = salary;
     }
 
     public Admin(String cf, String name, String surname, String password, String email, String phone, double salary) {
-        this.adminCf = cf;
-        this.adminName = name;
-        this.adminSurname = surname;
-        this.adminPassword = password;
-        this.adminEmail = email;
-        this.adminPhone = phone;
-        this.adminSalary = salary;
+        this.admin_cf = cf;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.salary = salary;
     }
 
     public Admin() {}
 
     public String getRole() { return "admin"; }
 
-    public int getAdminId() {
-        return adminId;
+    public int getId() {
+        return admin_id;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setId(int admin_id) {
+        this.admin_id = admin_id;
     }
 
-    public String getAdminCf() {
-        return adminCf;
+    public String getAdmin_cf() {
+        return admin_cf;
     }
 
-    public void setAdminCf(String adminCf) {
-        this.adminCf = adminCf;
+    public void setAdmin_cf(String admin_cf) {
+        this.admin_cf = admin_cf;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getName() {
+        return name;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAdminSurname() {
-        return adminSurname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setAdminSurname(String adminSurname) {
-        this.adminSurname = adminSurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getAdminPassword() {
-        return adminPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAdminPassword(String adminPassword) {
-        this.adminPassword = adminPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getAdminEmail() {
-        return adminEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAdminEmail(String adminEmail) {
-        this.adminEmail = adminEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getAdminPhone() {
-        return adminPhone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAdminPhone(String adminPhone) {
-        this.adminPhone = adminPhone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public double getAdminSalary() {
-        return adminSalary;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setAdminSalary(double adminSalary) {
-        this.adminSalary = adminSalary;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 }
