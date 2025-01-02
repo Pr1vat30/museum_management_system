@@ -9,21 +9,31 @@
     <div class="logo">
         <a href="index.jsp">Museum Management System</a>
     </div>
-    <div class="user-actions">
-        <a href="login.jsp" class="login-link">Login</a> <!-- Solo se non è loggato -->
-        <a href="account.jsp" class="account-link">Account</a> <!-- Solo se loggato -->
-        <button class="menu-toggle" id="menu-toggle">☰</button>
-    </div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
 </header>
 <aside id="sidebar" class="sidebar">
     <nav>
         <ul>
             <li><a href="home.jsp">Home</a></li>
-            <li><a href="manage-museum.jsp">Gestisci Museo</a></li>
             <li><a href="exhibitions.jsp">Esposizioni</a></li>
-            <li><a href="staff.jsp">Personale</a></li>
-            <li><a href="users.jsp">Utenti</a></li>
-            <li><a href="settings.jsp">Impostazioni</a></li>
+            <li><a href = "${pageContext.request.contextPath}/bigliettocontroller">Biglietto</a></li>
+            <%String user = (String) session.getAttribute("email");
+            if(user == null){%>
+                <li><a href="login.jsp">Login</a></li>
+                <li><a href="${pageContext.request.contextPath}/registrazione">Registrati</a></li>
+            <%}else
+                if(user.endsWith("@personale.com")){%>
+                    <li><a href="staff.jsp">Area Personale</a></li>
+                    <li><a href="manage-museum.jsp">Gestisci Museo</a></li>
+                <%} else if(user.endsWith("@admin.com")){%>
+                    <li><a href="staff.jsp">Area Personale</a></li>
+                    <li><a href="manage-museum.jsp">Gestisci Museo</a></li>
+                    <li><a href="manage-museum.jsp">Gestisci Personale</a></li>
+                <%} else {%>
+                    <li><a href="users.jsp">Area Utente</a></li>
+                    <li><a href="${pageContext.request.contextPath}//ticketshop">Acquista Biglietti</a></li>
+                    <li><a href="${pageContext.request.contextPath}//storico-biglietti">Storico Biglietti</a></li>
+                <%}%>
         </ul>
     </nav>
 </aside>

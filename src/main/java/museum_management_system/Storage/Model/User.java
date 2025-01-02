@@ -1,22 +1,32 @@
-package museum_management_system.Application.Dto;
+package museum_management_system.Storage.Model;
 
-import museum_management_system.Storage.Utils.CrittografiaUtils;
-
-import java.security.NoSuchAlgorithmException;
-
-public class UserDTO {
+public class User {
+    private int id;
     private String nome;
     private String cognome;
     private String email;
     private String password;
     private String telefono;
 
-    public UserDTO(String nome, String cognome, String email, String password, String telefono) throws NoSuchAlgorithmException {
+    public User(){
+        super();
+    }
+
+    public User(int id, String nome, String cognome, String email, String password, String telefono) {
+        this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.password = CrittografiaUtils.getMD5(password);
+        this.password = password;
         this.telefono = telefono;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

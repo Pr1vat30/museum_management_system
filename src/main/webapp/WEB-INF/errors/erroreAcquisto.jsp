@@ -10,11 +10,14 @@
 <body>
 <div class="container">
   <div class="error-message">
-    <h1>Errore nella registrazione</h1>
-    <p>Sembra che ci sia stato un problema con la tua registrazione. Per favore, riprova.</p>
+    <h1>Errore durante l'acquisto dei biglietti</h1>
+    <p>Sembra che ci sia stato un problema durante il processo di acquisto. Per favore, riprova.</p>
+    <% String errore = (String) request.getAttribute("infoErrore");%>
+    <p><%=errore%></p>
     <p>Se il problema persiste riprova più tardi.</p>
-    <a href="${pageContext.request.contextPath}//registrazione" class="retry-button">Riprova</a>
+    <a href="${pageContext.request.contextPath}//ticketshop" class="retry-button">Riprova</a>
   </div>
 </div>
 </body>
 </html>
+

@@ -1,0 +1,43 @@
+/* Stile per il contenitore principale del biglietto */
+.ticket {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Titolo del biglietto */
+.ticket h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Dettagli del biglietto */
+.ticket p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Titolo del codice QR */
+.ticket h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Immagine del codice QR */
+.ticket img {
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

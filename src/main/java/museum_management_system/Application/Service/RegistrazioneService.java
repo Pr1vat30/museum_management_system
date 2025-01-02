@@ -6,9 +6,7 @@ import java.util.regex.Pattern;
 
 public class RegistrazioneService {
 
-    public RegistrazioneService() {}
-
-    public boolean saveUser(UserDTO userDTO) {
+    public static boolean saveUser(UserDTO userDTO) {
         //VERIFICA DEI DATI
         if(validaDatiUtente(userDTO)) {
             //SALVO I DATI DELL'UTENTE NEL DATABASE COME NUOVO UTENTE
@@ -22,14 +20,14 @@ public class RegistrazioneService {
         return false;
     }
 
-    public boolean updateUser(UserDTO userDTO, UserDTO newUserDTO) {
+    public static boolean updateUser(UserDTO userDTO, UserDTO newUserDTO) {
         return true;
     }
-    public boolean deleteUser(UserDTO userDTO) {
+    public static boolean deleteUser(UserDTO userDTO) {
         return true;
     }
 
-    public boolean validaDatiUtente(UserDTO userDTO) {
+    public static boolean validaDatiUtente(UserDTO userDTO) {
         // Verifica che nome e cognome non siano vuoti
         if (userDTO.getNome() == null || userDTO.getNome().trim().isEmpty()) {
             return false;
@@ -45,10 +43,7 @@ public class RegistrazioneService {
         }
 
         // Verifica che il numero di telefono sia valido
-        if (userDTO.getTelefono() == null || userDTO.getTelefono().trim().isEmpty()) {
-            return false;
-        }
-        return true;  // Tutti i dati sono validi
+        return userDTO.getTelefono() != null && !userDTO.getTelefono().trim().isEmpty();// Tutti i dati sono validi
     }
 
 

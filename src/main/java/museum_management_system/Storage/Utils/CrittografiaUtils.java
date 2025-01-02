@@ -1,4 +1,4 @@
-package museum_management_system.Storage.Util;
+package museum_management_system.Storage.Utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
