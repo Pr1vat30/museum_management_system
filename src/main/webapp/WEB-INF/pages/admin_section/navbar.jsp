@@ -7,63 +7,63 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav>
-  <div class="logo main">
-    <div class="logo-space">
-      <i class='bx bx-menu menu-icon'></i>
-      <span class="logo-name">Dashboard</span>
-    </div>
-    <div class="logo-message">
-      <span><c:out value="Welcome ${sessionScope.user.name}"/></span>
-    </div>
-  </div>
-
-  <div class="sidebar">
-    <div class="logo">
-      <i class='bx bx-menu menu-icon'></i>
-      <span class="logo-name">Dashboard</span>
+    <div class="logo main">
+        <div class="logo-space">
+            <i class='bx bx-menu menu-icon'></i>
+            <span class="logo-name">Dashboard</span>
+        </div>
+        <div class="logo-message">
+            <span><c:out value="Welcome ${sessionScope.user.name}"/></span>
+        </div>
     </div>
 
-    <div class="sidebar-content">
-      <ul class="lists">
-        <li class="list">
-          <a href="dashboard-page?pg=0" class="nav-link">
-            <i class='bx bx-home-alt icon'></i>
-            <span class="link">Homepage</span>
-          </a>
-        </li>
+    <div class="sidebar">
+        <div class="logo">
+            <i class='bx bx-menu menu-icon'></i>
+            <span class="logo-name">Dashboard</span>
+        </div>
 
-        <li class="list">
-          <a href="dashboard-page?pg=1" class="nav-link">
-            <i class='bx bx-package icon'></i>
-            <span class="link">Messages</span>
-          </a>
-        </li>
+        <div class="sidebar-content">
+            <ul class="lists">
+                <li class="list">
+                    <a href="admin-nav-servlet?pg=homepage" class="nav-link">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="link">Homepage</span>
+                    </a>
+                </li>
 
-        <li class="list">
-          <a href="dashboard-page?pg=2" class="nav-link">
-            <i class='bx bx-category icon'></i>
-            <span class="link">Mange Stuff</span>
-          </a>
-        </li>
-      </ul>
+                <li class="list">
+                    <a href="admin-nav-servlet?pg=notification" class="nav-link">
+                        <i class='bx bx-package icon'></i>
+                        <span class="link">Notitication</span>
+                    </a>
+                </li>
 
-      <div class="bottom-content">
-        <li class="list">
-          <a href="#" class="nav-link">
-            <i class='bx bx-cog icon'></i>
-            <span class="link">Setting</span>
-          </a>
-        </li>
+                <li class="list">
+                    <a href="#" class="nav-link">
+                        <i class='bx bx-category icon'></i>
+                        <span class="link">Mange Stuff</span>
+                    </a>
+                </li>
+            </ul>
 
-        <li class="list">
-          <a href="#" class="nav-link" id="logout">
-            <i class='bx bx-log-out icon'></i>
-            <span class="link">Log Out</span>
-          </a>
-        </li>
-      </div>
+            <div class="bottom-content">
+                <li class="list">
+                    <a href="#" class="nav-link">
+                        <i class='bx bx-cog icon'></i>
+                        <span class="link">Setting</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="#" class="nav-link" id="logout">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="link">Log Out</span>
+                    </a>
+                </li>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>
 
 <section class="overlay"></section>

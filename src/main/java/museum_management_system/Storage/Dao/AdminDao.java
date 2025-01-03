@@ -1,9 +1,7 @@
 package museum_management_system.Storage.Dao;
 
 import museum_management_system.Storage.Model.Admin;
-import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

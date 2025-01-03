@@ -65,3 +65,14 @@ INSERT INTO Staff (staff_name, staff_surname, staff_email, staff_password, staff
 ('Riccardo', 'Bianchi', 'staff18@example.com', 'password18', '1234567818', 3600.00, 'Full-time', 'Guida', '2020-03-10', 40, 'CF12345678918'),
 ('Elisa', 'Rosa', 'staff19@example.com', 'password19', '1234567819', 2900.40, 'Part-time', 'Tecnico', '2021-09-01', 25, 'CF12345678919'),
 ('Tommaso', 'Marroni', 'staff20@example.com', 'password20', '1234567820', 3100.20, 'Full-time', 'Receptionist', '2018-05-22', 40, 'CF12345678920');
+
+
+INSERT INTO Message (message_title, message_object, message_content, send_date) VALUES 
+('Welcome Message', 'Introduction', 'Hello, welcome to our service!', '2025-01-01'),
+('Reminder', 'Task Reminder', 'Don\'t forget to complete your tasks!', '2025-01-02'),
+('Event Update', 'Meeting', 'The meeting is scheduled at 10 AM tomorrow.', '2025-01-03'),
+('Thank You', 'Gratitude', 'Thank you for being a valued customer.', '2025-01-04'),
+('System Alert', 'Maintenance', 'System maintenance is scheduled for tonight.', '2025-01-05');
+
+select * from Message
+
