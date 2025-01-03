@@ -216,6 +216,7 @@ CREATE TABLE `personale` (
   `tipo` varchar(15) NOT NULL,
   `stipendio` float NOT NULL,
   `cf_admin` varchar(16) NOT NULL,
+  `password` varchar(20) NOT NULL,
   PRIMARY KEY (`cf`),
   KEY `cf_admin` (`cf_admin`),
   CONSTRAINT `personale_ibfk_1` FOREIGN KEY (`cf_admin`) REFERENCES `admin` (`cf`) ON UPDATE CASCADE
