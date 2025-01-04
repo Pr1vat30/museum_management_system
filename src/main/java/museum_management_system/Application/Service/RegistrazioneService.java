@@ -6,15 +6,16 @@ import museum_management_system.Storage.Model.User;
 public class RegistrazioneService {
 
     public static boolean saveUser(UserDTO userDTO) {
-        try{
-            validaDatiUtente(userDTO);
-            UserDAO dd = new UserDAO();
-            dd.saveUser(convertiInEntita(userDTO));
-            return true;
-        }catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-            return false;
-        }
+//        try{
+//            validaDatiUtente(userDTO);
+//            UserDAO dd = new UserDAO();
+//            dd.saveUser(convertiInEntita(userDTO));
+//            return true;
+//        }catch (IllegalArgumentException e){
+//            System.out.println(e.getMessage());
+//            return false;
+//        }
+        return true;
     }
 
     public static boolean updateUser(UserDTO newUserDTO) {
@@ -33,12 +34,12 @@ public class RegistrazioneService {
         if (userDTO.getCognome() == null || userDTO.getCognome().trim().isEmpty()) {
             throw new IllegalArgumentException("Cognome utente non valido");
         }
-        UserDAO dd = new UserDAO();
-        User us = dd.getUserByEmail(userDTO.getEmail());
-        // Verifica che l'email sia valida
-        if (userDTO.getEmail() == null || userDTO.getEmail().trim().isEmpty() || us != null) {
-            throw new IllegalArgumentException("Email utente non valida o già utilizzata");
-        }
+//        UserDAO dd = new UserDAO();
+//        User us = dd.getUserByEmail(userDTO.getEmail());
+//        // Verifica che l'email sia valida
+//        if (userDTO.getEmail() == null || userDTO.getEmail().trim().isEmpty() || us != null) {
+//            throw new IllegalArgumentException("Email utente non valida o già utilizzata");
+//        }
     }
 
     private static UserDTO convertiInDTO(User us) {
