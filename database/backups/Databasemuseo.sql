@@ -15,6 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+# CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON museo.* TO 'user'@'localhost';
+
+
 --
 -- Table structure for table `acquisto`
 --
