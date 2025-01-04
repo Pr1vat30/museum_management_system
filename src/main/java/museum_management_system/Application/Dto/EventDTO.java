@@ -79,4 +79,5 @@ public class EventDTO {
     public void setPriceXTicket(float priceXTicket) {
         this.priceXTicket = priceXTicket;
     }
+
 }

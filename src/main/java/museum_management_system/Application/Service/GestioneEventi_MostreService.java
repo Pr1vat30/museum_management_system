@@ -9,42 +9,93 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestioneEventi_MostreService {
+    public static boolean createEvento(EventDTO eventodto){
+        try{
+            validateEvent(eventodto);
+            Event event = convertiInEntita(eventodto);
+            EventDAO dd = new EventDAO();
+            dd.addEvent(event);
+            return true;
+        }catch (IllegalArgumentException e){
+            return false;
+        }
+    }
+
     public static String getEventName(int id){
         EventDAO dd = new EventDAO();
         Event evento = dd.getEventById(id);
         return evento.getName();
     }
 
-    public static float getPrice(long idEvent){
-        //ottiene il prezzo del biglietto per l'evento dal database
-        return 10;
+    public static float getPrice(int id){
+        EventDAO dd = new EventDAO();
+        Event evento = dd.getEventById(id);
+        return evento.getPriceXTicket();
     }
 
-    public static boolean validatePrenotazione(long idEvento, LocalDate dataPrenotazione, int numeroPosti) {
-        //Ottiene l'evento tramite l'id dal DAO e verifica che esista
-        //verifica se ci sono posti liberi e se sono sufficienti
-        //verifica se la data è compatibile con l'evento
-        //se è possibile prenotare restituisce true
-        //altrimenti false
-        return true;
+    public static void validateEvent(EventDTO evento){
+        LocalDate startDate = evento.getStartDate();
+        LocalDate endDate = evento.getEndDate();
+        if(startDate.isAfter(endDate)){
+            throw new IllegalArgumentException("Date di inizio e fine non valide");
+        }
+        if(evento.getPostiLiberi() < 1){
+            throw new IllegalArgumentException("Numero di posti non valido");
+        }
     }
-    public static boolean validatePrenotazione(long idEvento, LocalDate dataPrenotazione) {
-        //Fa la stessa cosa ma senza valutare i posti disponibili
-        return true;
+    public static boolean validatePrenotazione(int eventid, LocalDate dataPrenotazione, int numeroPosti) {
+        EventDAO dd = new EventDAO();
+        Event evento = dd.getEventById(eventid);
+        if(evento != null){
+            if(evento.getPostiLiberi() >= numeroPosti){
+                evento.setPostiLiberi(evento.getPostiLiberi() - numeroPosti);
+                if(evento.getStartDate().isBefore(dataPrenotazione) && evento.getEndDate().isAfter(dataPrenotazione)){
+                    updateEvent(convertiInDTO(evento));
+                    return true;
+                }
+            }
+            return false;
+        }
+        throw new IllegalArgumentException("Evento non trovato");
+    }
+
+    public static boolean validatePrenotazione(int eventid, LocalDate dataPrenotazione) {
+        EventDAO dd = new EventDAO();
+        Event evento = dd.getEventById(eventid);
+        if(evento != null){
+            if(evento.getStartDate().isBefore(dataPrenotazione) && evento.getEndDate().isAfter(dataPrenotazione)){
+                updateEvent(convertiInDTO(evento));
+                return true;
+            }
+            return false;
+        }
+        throw new IllegalArgumentException("Evento non trovato");
+    }
+
+    public static void updateEvent(EventDTO eventDTO){
+        EventDAO dd = new EventDAO();
+        if(!dd.updateEvent(convertiInEntita(eventDTO))){
+            throw new IllegalArgumentException("Errore nell'aggiornamento dell'evento");
+        }
+    }
+
+    public static EventDTO getEventById(int id){
+        EventDAO dd = new EventDAO();
+        Event evento = dd.getEventById(id);
+        return convertiInDTO(evento);
     }
 
     public static List<EventDTO> getEventi(){
-        //Ottiene la lista di eventi che sono disponibili a partire dalla data attuale
-        //li converte in eventi DTO
-        //li restituisce
-        List<EventDTO> eventi = new ArrayList<>();
-        Event evento = new Event();
-        evento.setId(1);
-        evento.setName("Evento1");
-        evento.setStartDate(LocalDate.now());
-        evento.setEndDate(LocalDate.now().plusDays(1));
-        eventi.add(convertiInDTO(evento));
-        return eventi;
+        EventDAO dd = new EventDAO();
+        List<Event> allEventi = dd.getAllEvent();
+        List<EventDTO> eventDTOS = new ArrayList<>();
+        if(allEventi != null){
+            for (Event event : allEventi) {
+                eventDTOS.add(convertiInDTO(event));
+            }
+            return eventDTOS;
+        }
+        return null;
     }
 
     public static EventDTO convertiInDTO(Event evento){

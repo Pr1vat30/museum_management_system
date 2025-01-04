@@ -16,7 +16,7 @@
         <ul>
             <li><a href="home.jsp">Home</a></li>
             <li><a href="exhibitions.jsp">Esposizioni</a></li>
-            <li><a href = "${pageContext.request.contextPath}/bigliettocontroller">Biglietto</a></li>
+            <li><a href="${pageContext.request.contextPath}/mainevents">Eventi</a></li>
             <%String user = (String) session.getAttribute("email");
             if(user == null){%>
                 <li><a href="login.jsp">Login</a></li>

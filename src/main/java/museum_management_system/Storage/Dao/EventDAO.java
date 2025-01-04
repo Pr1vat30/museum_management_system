@@ -2,7 +2,6 @@ package museum_management_system.Storage.Dao;
 
 import museum_management_system.Storage.Model.DatabaseConnection;
 import museum_management_system.Storage.Model.Event;
-import museum_management_system.Storage.Model.Ticket;
 
 import java.sql.Connection;
 import java.time.LocalDate;

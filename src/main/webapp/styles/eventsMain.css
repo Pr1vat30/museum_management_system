@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Aggiungi questa sezione al tuo file eventsMain.css */
+
+.card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.highlight-title {
+    font-size: 2em; /* Aumenta la dimensione del font */
+    color: #FF6347; /* Colore più vivace per il titolo */
+    text-transform: uppercase; /* Trasforma il testo in maiuscolo */
+    font-family: 'Arial', sans-serif; /* Cambia il font per dare più impatto */
+    letter-spacing: 1px; /* Aggiungi spazio tra le lettere */
+}
+
+.card-details {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-details span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+}
+
+/* Media query per schermi molto piccoli */
+@media (max-width: 480px) {
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-details {
+        font-size: 12px;
+    }
+
+    .card-price {
+        font-size: 14px;
+    }
+}

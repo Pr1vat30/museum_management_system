@@ -26,12 +26,14 @@
         <option value = "-1">Biglietto Base</option>
         <%
             List<EventDTO> eventi = (List<EventDTO>) request.getAttribute("eventi");
+            if(eventi != null){
             for (EventDTO evento : eventi) {
         %>
         <option value="<%= evento.getId() %>">
             <%= evento.getName() %> - <%= evento.getStartDate() %> - <%= evento.getEndDate() %>
         </option>
-        <%}%>
+        <%      }
+            }%>
     </select><br><br>
 
     <label for="data">Data della prenotazione:</label>

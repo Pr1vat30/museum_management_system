@@ -22,14 +22,7 @@ public class GestioneBigliettiService {
     public static boolean createBiglietto(BigliettoDTO bigliettoDTO) {
         try{
             validateBiglietto(bigliettoDTO);
-            Ticket tk = new Ticket();
-            tk.setUserEmail(bigliettoDTO.getUserEmail());
-            tk.setTitolare(bigliettoDTO.getTitolare());
-            tk.setEventId(bigliettoDTO.getEventId());
-            tk.setEventName(GestioneEventi_MostreService.getEventName(bigliettoDTO.getEventId()));
-            tk.setDataPrenotazione(bigliettoDTO.getDataPrenotazione());
-            tk.setPrezzo(bigliettoDTO.getPrezzo());
-            tk.setStato("valido");
+            Ticket tk = convertiInEntita(bigliettoDTO);
             BigliettiDAO bb = new BigliettiDAO();
             bb.addTicket(tk);
             return true;
