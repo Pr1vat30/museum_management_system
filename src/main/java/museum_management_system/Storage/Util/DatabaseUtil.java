@@ -26,7 +26,7 @@ public class DatabaseUtil implements ServletContextListener {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connection to database established.");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("<ERRORE DI CONNESSIONE NEL METODO STARTCONNECTION>" + e.getStackTrace());
             throw new RuntimeException("Database connection failed.");
         }
     }
@@ -53,7 +53,7 @@ public class DatabaseUtil implements ServletContextListener {
                     DriverManager.deregisterDriver(driver);
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println("<ERRORE DI CONNESSIONE NEL METODO CONTEXTDESTROYED>" + e.getStackTrace());
             }
         }
 
