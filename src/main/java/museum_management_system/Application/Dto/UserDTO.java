@@ -11,6 +11,10 @@ public class UserDTO {
     private String password;
     private String telefono;
 
+    public UserDTO() {
+        super();
+    }
+
     public UserDTO(String nome, String cognome, String email, String password, String telefono) throws NoSuchAlgorithmException {
         this.nome = nome;
         this.cognome = cognome;

@@ -1,7 +1,6 @@
 package museum_management_system.Storage.Model;
 
 public class User {
-    private int id;
     private String nome;
     private String cognome;
     private String email;
@@ -13,20 +12,11 @@ public class User {
     }
 
     public User(int id, String nome, String cognome, String email, String password, String telefono) {
-        this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
         this.telefono = telefono;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {

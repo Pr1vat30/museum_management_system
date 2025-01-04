@@ -1,49 +1,64 @@
 package museum_management_system.Application.Service;
 
 import museum_management_system.Application.Dto.UserDTO;
-
-import java.util.regex.Pattern;
+import museum_management_system.Storage.Model.User;
 
 public class RegistrazioneService {
 
     public static boolean saveUser(UserDTO userDTO) {
-        //VERIFICA DEI DATI
-        if(validaDatiUtente(userDTO)) {
-            //SALVO I DATI DELL'UTENTE NEL DATABASE COME NUOVO UTENTE
-            /*
-            UserDAOImpl conn = new UserDAOImpl(DatabaseConnection.getConnection());
-            conn.addUser(us);
-            */
-            //return true;    //SE VA A BUON FINE
-            return false; //SE CI SONO PROBLEMI
+        try{
+            validaDatiUtente(userDTO);
+            UserDAO dd = new UserDAO();
+            dd.saveUser(convertiInEntita(userDTO));
+            return true;
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return false;
         }
-        return false;
     }
 
-    public static boolean updateUser(UserDTO userDTO, UserDTO newUserDTO) {
+    public static boolean updateUser(UserDTO newUserDTO) {
         return true;
     }
     public static boolean deleteUser(UserDTO userDTO) {
         return true;
     }
 
-    public static boolean validaDatiUtente(UserDTO userDTO) {
+    public static void validaDatiUtente(UserDTO userDTO) {
         // Verifica che nome e cognome non siano vuoti
         if (userDTO.getNome() == null || userDTO.getNome().trim().isEmpty()) {
-            return false;
+            throw new IllegalArgumentException("Nome utente non valido");
         }
 
         if (userDTO.getCognome() == null || userDTO.getCognome().trim().isEmpty()) {
-            return false;
+            throw new IllegalArgumentException("Cognome utente non valido");
         }
-
+        UserDAO dd = new UserDAO();
+        User us = dd.getUserByEmail(userDTO.getEmail());
         // Verifica che l'email sia valida
-        if (userDTO.getEmail() == null || userDTO.getEmail().trim().isEmpty()) {
-            return false;
+        if (userDTO.getEmail() == null || userDTO.getEmail().trim().isEmpty() || us != null) {
+            throw new IllegalArgumentException("Email utente non valida o già utilizzata");
         }
+    }
 
-        // Verifica che il numero di telefono sia valido
-        return userDTO.getTelefono() != null && !userDTO.getTelefono().trim().isEmpty();// Tutti i dati sono validi
+    private static UserDTO convertiInDTO(User us) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome(us.getNome());
+        userDTO.setCognome(us.getCognome());
+        userDTO.setEmail(us.getEmail());
+        userDTO.setTelefono(us.getTelefono());
+        return userDTO;
+    }
+
+    private static User convertiInEntita(UserDTO userDTO) {
+        User us = new User();
+        us.setNome(userDTO.getNome());
+        us.setCognome(userDTO.getCognome());
+        us.setEmail(userDTO.getEmail());
+        us.setPassword(userDTO.getPassword());
+        us.setTelefono(userDTO.getTelefono());
+        return us;
+
     }
 
 
