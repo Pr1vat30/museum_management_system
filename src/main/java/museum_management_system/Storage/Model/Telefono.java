@@ -9,6 +9,9 @@ public class Telefono {
         this.cf_personale = cf_personale;
         this.numero = numero;
     }
+    public Telefono(){
+
+    }
 
 
     public String getCf_personale() {

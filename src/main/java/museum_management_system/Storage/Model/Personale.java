@@ -21,6 +21,10 @@ public class Personale {
         this.stipendio = stipendio;
     }
 
+    public Personale(){
+
+    }
+
 
     public String getCf() {
         return cf;

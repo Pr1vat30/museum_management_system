@@ -22,6 +22,10 @@ public class Acquisto {
         this.data_visita = data_visita;
     }
 
+    public Acquisto(){
+
+    }
+
 
     public int getN_biglietto() {
         return n_biglietto;

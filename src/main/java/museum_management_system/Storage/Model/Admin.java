@@ -15,6 +15,10 @@ public class Admin {
         this.password = password;
     }
 
+    public Admin(){
+
+    }
+
 
     public String getCf() {
         return cf;

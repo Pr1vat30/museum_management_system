@@ -227,7 +227,7 @@ CREATE TABLE `personale` (
 -- Dumping data for table `personale`
 --
 
-LOCK TABLES `personale` WRITE;
+LOCK TABLES `personale` WRITE;a
 /*!40000 ALTER TABLE `personale` DISABLE KEYS */;
 /*!40000 ALTER TABLE `personale` ENABLE KEYS */;
 UNLOCK TABLES;
