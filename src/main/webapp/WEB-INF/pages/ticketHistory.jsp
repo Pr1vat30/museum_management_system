@@ -21,8 +21,9 @@
             if (storicoBiglietti != null && !storicoBiglietti.isEmpty()) {
                 for (BigliettoDTO ticket : storicoBiglietti) {
         %>
-        <form action="TicketDetailServlet" method="post" class="card">
+        <form action="${pageContext.request.contextPath}/bigliettocontroller" method="post" class="card">
             <input type="hidden" id = "ticketId" name="ticketId" value="<%= ticket.getId() %>">
+            <input type="hidden" id = "titolare" name="titolare" value="<%= ticket.getTitolare() %>">
             <div>
                 <h3>Evento: <%= ticket.getEventId() %></h3>
                 <p>Data Evento: <%= ticket.getDataPrenotazione() %></p>

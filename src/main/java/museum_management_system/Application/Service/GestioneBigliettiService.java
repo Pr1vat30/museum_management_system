@@ -5,6 +5,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import jakarta.servlet.ServletContextEvent;
 import museum_management_system.Application.Dto.BigliettoDTO;
 import museum_management_system.Storage.Dao.BigliettiDAO;
 import museum_management_system.Storage.Model.Ticket;
@@ -37,7 +38,6 @@ public class GestioneBigliettiService {
         BigliettiDAO bb = new BigliettiDAO();
         Ticket tk = bb.getTicketById(id);
         BigliettoDTO biglietto = convertiInDTO(tk);
-        generaQRcode(biglietto.getId());
         return biglietto;
     }
 
@@ -47,7 +47,6 @@ public class GestioneBigliettiService {
         List<BigliettoDTO> listaBiglietti = new ArrayList<>();
         for (Ticket ttk : ttks){
             BigliettoDTO biglietto = convertiInDTO(ttk);
-            generaQRcode(ttk.getId());
             listaBiglietti.add(biglietto);
         }
         return listaBiglietti;
@@ -84,30 +83,6 @@ public class GestioneBigliettiService {
             listaBiglietti.add(convertiInDTO(ttk));
         }
         return listaBiglietti;
-    }
-
-    public static void generaQRcode(int id) {
-        // Converti l'intero in una stringa (necessario per il QR code)
-        String testo = String.valueOf(id);
-        String filePath =  "../../../webapp/qrcode/"+ id + ".png";
-        Path path = Paths.get(filePath);
-        if (!Files.exists(path)) {
-            // Crea il QR Code
-            try {
-                QRCodeWriter qrCodeWriter = new QRCodeWriter();
-                BitMatrix bitMatrix = qrCodeWriter.encode(testo, BarcodeFormat.QR_CODE, 400, 400);
-
-                // Salva l'immagine in un file
-                path = FileSystems.getDefault().getPath(filePath);
-                MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
-            } catch (WriterException w) {
-                System.out.println("Impossibile generare il QR code");
-                filePath = null;
-            } catch (IOException e) {
-                System.out.println("Impossibile salvare il QR code");
-                filePath = null;
-            }
-        }
     }
 
     public static boolean convalidaBiglietto(int id) {

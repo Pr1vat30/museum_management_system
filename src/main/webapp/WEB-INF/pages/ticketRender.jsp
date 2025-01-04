@@ -12,7 +12,7 @@
 </header>
 <div class="ticket">
     <h2><%=request.getAttribute("titolare")%></h2>
-    <img src="<%=request.getContextPath() + request.getAttribute("qrcode")%>" alt="Codice QR del Biglietto" />
+    <img src="<%=request.getAttribute("qrcode")%>" alt="Codice QR del Biglietto" />
 </div>
 <footer>
     <jsp:include page="footer.jsp"/>
