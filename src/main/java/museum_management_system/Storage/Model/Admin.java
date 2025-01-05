@@ -7,18 +7,14 @@ public class Admin {
     private String surname;
     private String password;
     private String email;
-    private String phone;
-    private double salary;
 
-    public Admin(int id, String cf, String name, String surname, String password, String email, String phone, double salary) {
+    public Admin(int id, String cf, String name, String surname, String password, String email) {
         this.admin_id = id;
         this.admin_cf = cf;
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.email = email;
-        this.phone = phone;
-        this.salary = salary;
     }
 
     public Admin(String cf, String name, String surname, String password, String email, String phone, double salary) {
@@ -27,8 +23,6 @@ public class Admin {
         this.surname = surname;
         this.password = password;
         this.email = email;
-        this.phone = phone;
-        this.salary = salary;
     }
 
     public Admin() {}
@@ -81,21 +75,5 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 }
