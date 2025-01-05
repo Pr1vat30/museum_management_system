@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    margin-bottom: 120px;
+}
+
+.box-info, .table-data {
+    padding: 20px;
+    margin: 50px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.table-data {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.table {
+    display: flex;
+    margin: 0 50px;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.box-info li {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.box-info li i {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-info li i {
+    background-color: #4070f4;
+    color: #ffffff;
+}
+
+.text h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.table-data .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.table-data .head i {
+    cursor: pointer;
+}
+
+.head a {
+    color: black;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+thead th {
+    top: 0;
+    background-color: #f6f9fc;
+    color: #707070;
+    font-size: 16px;
+}
+th, td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+td image {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #8b8b8b;
+}
+
+tr:hover td {
+    color: #0171d3;
+    cursor: pointer;
+    background-color: #f6f9fc;
+}
+
+@media (max-width: 1200px) {
+    .box-info { grid-template-columns: repeat(2, 1fr); }
+
+    .table {
+        gap: 50px;
+        margin-bottom: 50px;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .box-info {
+        margin: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .table {
+        margin: 50px 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .box-info { grid-template-columns: repeat(1, 1fr); }
+}
+
+@media screen and (max-width: 480px) {
+    .order {
+        overflow: auto;
+    }
+
+    .head, table {
+        min-width: 400px;
+    }
+}

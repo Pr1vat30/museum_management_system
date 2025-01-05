@@ -1,0 +1,140 @@
+header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header ul {
+    display: flex;
+    font-size: 16px;
+    list-style: none;
+}
+
+header ul li {
+    padding: 0 15px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+header .header-icon {
+    display: flex;
+    align-items: center;
+}
+
+header .header-icon .icon {
+    font-size: 24px;
+    padding: 8px;
+    cursor: pointer;
+    color: black;
+}
+
+header .header-icon .search-box {
+    position: absolute;
+    right: 200px;
+    height: 45px;
+    max-width: 350px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-box .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 0 15px 0 45px;
+}
+
+header.open-search .header-list a {
+    opacity: 0;
+    pointer-events: none;
+}
+
+header.open-search .header-icon .search-box {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+header .burger-open,
+header .burger-close {
+    display: none;
+}
+
+.header-icon .login-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    padding: 0 10px;
+    margin-left: 10px;
+    border: 2px solid #333333;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    header .burger-open,
+    header .burger-close {
+        display: block;
+    }
+
+    header .header-logo {
+        display: none;
+    }
+
+    header {
+        padding: 0;
+    }
+
+    header .header-list {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        padding-top: 80px;
+        text-align: center;
+        row-gap: 30px;
+        flex-direction: column;
+        background-color: #ffffff;
+        transition: all 0.4s ease;
+        z-index: 1;
+    }
+
+    header.open-nav .header-list {
+        left: 0;
+    }
+
+    header .burger-open {
+        font-size: 24px;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    header .burger-close {
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        font-size: 24px;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    header .header-icon .search-box {
+        top: 65px;
+        max-width: calc(100% - 30px);
+        right: 50%;
+        transform: translateX(50%);
+    }
+}

@@ -1,0 +1,64 @@
+.container.signup-form {
+    overflow-x: hidden;
+}
+
+.form.signup {
+    max-width: 530px;
+    margin: 40px 0;
+}
+
+.form.signup .field,
+.form.signup .input-field {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.form.signup .field label {
+    color: #333333;
+}
+
+.form.signup .field input,
+.form.signup .field button {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 8px;
+}
+
+.form.signup .field button {
+    margin-top: 15px;
+}
+
+.form.signup .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form.signup .eye-icon {
+    transform: translateY(+5%);
+}
+
+.form.signup input[type=date] {
+    color: #8b8b8b;
+}
+
+form .section {
+    margin-top: 25px;
+}
+
+.section > label {
+    margin-top: 20px !important;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+    .container.signup-form {
+        height: auto;
+    }
+    .form.signup .column {
+        flex-direction: column;
+    }
+}
