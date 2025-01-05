@@ -78,7 +78,4 @@ public class MessageController extends HttpServlet {
             out.flush();
         }
     }
-
-
-
 }

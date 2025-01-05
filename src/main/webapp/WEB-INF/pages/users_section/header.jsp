@@ -21,7 +21,7 @@
             <i class='bx bx-search icon'></i>
             <input type="text" placeholder="Search here...">
         </div>
-        <a href="#"><i class='bx bx-shopping-bag icon'></i></a>
+        <a href="users-nav-servlet?pg=notification"><i class='bx bx-shopping-bag icon'></i></a>
 
         <c:choose>
             <c:when test="${sessionScope.logged == true}">
