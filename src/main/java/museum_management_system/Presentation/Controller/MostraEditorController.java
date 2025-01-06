@@ -5,20 +5,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import museum_management_system.Application.Dto.EventDTO;
-import museum_management_system.Application.Service.GestioneEventi_MostreService;
+import museum_management_system.Application.Dto.MostraDTO;
+import museum_management_system.Application.Service.GestioneMostreService;
 
 import java.io.IOException;
 import java.time.LocalDate;
 
 @WebServlet(name = "EventEditor", value = "/eventeditor")
-public class EventEditorController extends HttpServlet {
+public class MostraEditorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String eventId = req.getParameter("id");
-        EventDTO event = GestioneEventi_MostreService.getEventById(Integer.parseInt(eventId));
+        MostraDTO event = GestioneMostreService.getMostraById(Integer.parseInt(eventId));
         req.setAttribute("event", event);
-        req.getRequestDispatcher("WEB-INF/pages/eventEditor.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/pages/mostraEditor.jsp").forward(req, resp);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class EventEditorController extends HttpServlet {
         int postioccupati = Integer.parseInt(request.getParameter("postioccupati"));
 
 //        // Recupero dell'evento originale per mantenere i valori che non sono stati modificati
-//        EventDTO eventoOriginale = GestioneEventi_MostreService.getEventById(Integer.parseInt(id));
+//        EventDTO eventoOriginale = GestioneEventi_MostreService.getMostraById(Integer.parseInt(id));
 //
 //        // Se un parametro non è stato modificato, manteniamo il valore originale
 //        if (nome == null || nome.isEmpty()) {
@@ -59,7 +59,7 @@ public class EventEditorController extends HttpServlet {
         int postiLiberi = posti-postioccupati;
 
 
-        EventDTO nuovoEvento = new EventDTO();
+        MostraDTO nuovoEvento = new MostraDTO();
         nuovoEvento.setId(Integer.parseInt(id));
         nuovoEvento.setName(nome);
         nuovoEvento.setDescription(descrizione);
@@ -69,11 +69,11 @@ public class EventEditorController extends HttpServlet {
         nuovoEvento.setEndDate(LocalDate.parse(enddate));
         nuovoEvento.setPriceXTicket(prezzo);
         try{
-            GestioneEventi_MostreService.updateEvent(nuovoEvento);
+            GestioneMostreService.updateMostra(nuovoEvento);
         }catch (IllegalArgumentException e){
             request.setAttribute("infoErrore", e.getMessage());
             request.getRequestDispatcher("WEB-INF/errors/erroreEvento.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("WEB-INF/pages/eventsMain.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/pages/mostreMain.jsp").forward(request, response);
     }
 }

@@ -1,20 +1,9 @@
 package museum_management_system.Application.Service;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
-import jakarta.servlet.ServletContextEvent;
 import museum_management_system.Application.Dto.BigliettoDTO;
 import museum_management_system.Storage.Dao.BigliettiDAO;
 import museum_management_system.Storage.Model.Ticket;
 
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +105,7 @@ public class GestioneBigliettiService {
             throw new IllegalArgumentException("Data non valida");
         }
         // Verifica che l'ID dell'evento sia valido
-        if (GestioneEventi_MostreService.validatePrenotazione(bigliettoDTO.getEventId(), bigliettoDTO.getDataPrenotazione())) {
+        if (GestioneMostreService.validatePrenotazione(bigliettoDTO.getEventId(), bigliettoDTO.getDataPrenotazione())) {
             throw new IllegalArgumentException("Prenotazione evento non valida");
         }
         // Verifica che il nome del titolare sia valido

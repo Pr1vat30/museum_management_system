@@ -9,9 +9,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import museum_management_system.Application.Dto.BigliettoDTO;
-import museum_management_system.Application.Service.GestioneBigliettiService;
-import museum_management_system.Application.Service.GestioneEventi_MostreService;
 
 import java.io.File;
 import java.io.IOException;

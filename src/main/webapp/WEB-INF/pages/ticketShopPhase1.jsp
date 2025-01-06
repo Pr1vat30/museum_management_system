@@ -15,19 +15,19 @@
 <form id = "shopPhase1" action="${pageContext.request.contextPath}//phase2redirect" method="post">
     <label for="numero">Numero di biglietti:</label>
     <select id="numero" name="numero" required>
-<%@ page import="museum_management_system.Application.Dto.EventDTO" %>
+<%@ page import="museum_management_system.Application.Dto.MostraDTO" %>
 <% for (int i = 1; i <= 8; i++) { %>
         <option value="<%= i %>"><%= i %></option>
         <% } %>
     </select><br><br>
 
-    <label for="eventId">Evento: </label>
+    <label for="eventId">Mostra: </label>
     <select id="eventId" name="eventId" required>
         <option value = "-1">Biglietto Base</option>
         <%
-            List<EventDTO> eventi = (List<EventDTO>) request.getAttribute("eventi");
+            List<MostraDTO> eventi = (List<MostraDTO>) request.getAttribute("eventi");
             if(eventi != null){
-            for (EventDTO evento : eventi) {
+            for (MostraDTO evento : eventi) {
         %>
         <option value="<%= evento.getId() %>">
             <%= evento.getName() %> - <%= evento.getStartDate() %> - <%= evento.getEndDate() %>

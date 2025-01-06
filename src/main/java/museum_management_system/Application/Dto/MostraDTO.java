@@ -2,7 +2,7 @@ package museum_management_system.Application.Dto;
 
 import java.time.LocalDate;
 
-public class EventDTO {
+public class MostraDTO {
     private int id;
     private String name;
     private String description;
@@ -12,7 +12,7 @@ public class EventDTO {
     private int postiLiberi;
     private float priceXTicket;
 
-    public EventDTO() {
+    public MostraDTO() {
         super();
     }
 

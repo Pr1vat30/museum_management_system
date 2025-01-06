@@ -2,7 +2,7 @@ package museum_management_system.Storage.Model;
 
 import java.time.LocalDate;
 
-public class Event {
+public class Mostra {
     private int id;
     private String name;
     private String description;
@@ -12,7 +12,7 @@ public class Event {
     private int postiLiberi;
     private float priceXTicket;
 
-    public Event() {
+    public Mostra() {
         super();
     }
 

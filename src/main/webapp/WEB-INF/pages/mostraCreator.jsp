@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crea Nuovo Evento</title>
+    <title>Crea Nuova Mostra</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/eventCreator.css">
 </head>
 <body>
 <div class="container">
-    <h1>Crea Nuovo Evento</h1>
+    <h1>Crea Nuova Mostra</h1>
 
     <!-- Form di creazione evento -->
     <form id = "eventForm" action="${pageContext.request.contextPath}/eventcreator" method="POST">

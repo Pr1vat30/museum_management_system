@@ -7,9 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import museum_management_system.Application.Dto.BigliettoDTO;
-import museum_management_system.Application.Dto.EventDTO;
+import museum_management_system.Application.Dto.MostraDTO;
 import museum_management_system.Application.Service.GestioneBigliettiService;
-import museum_management_system.Application.Service.GestioneEventi_MostreService;
+import museum_management_system.Application.Service.GestioneMostreService;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ public class ShopBigliettiController extends HttpServlet {
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<EventDTO> eventi = GestioneEventi_MostreService.getEventi();
+        List<MostraDTO> eventi = GestioneMostreService.getAllMostre();
         request.setAttribute("eventi", eventi);
         request.getRequestDispatcher("WEB-INF/pages/ticketShopPhase1.jsp").forward(request, response);
     }
@@ -54,7 +54,7 @@ public class ShopBigliettiController extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/errors/erroreAcquisto.jsp").forward(request, response);
             }
         }
-        request.setAttribute("eventoAcquistato", GestioneEventi_MostreService.getEventName(eventId));
+        request.setAttribute("eventoAcquistato", GestioneMostreService.getMostraName(eventId));
         request.setAttribute("totalprice", totalprice);
         request.getRequestDispatcher("WEB-INF/pages/ticketShopPhase3.jsp").forward(request, response);
     }

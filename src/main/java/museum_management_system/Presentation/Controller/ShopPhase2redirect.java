@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import museum_management_system.Application.Service.GestioneEventi_MostreService;
+import museum_management_system.Application.Service.GestioneMostreService;
 
 @WebServlet(name = "phase2redirect", value = {"/phase2redirect"})
 public class ShopPhase2redirect extends HttpServlet {
@@ -53,7 +53,7 @@ public class ShopPhase2redirect extends HttpServlet {
             req.getRequestDispatcher("WEB-INF/errors/erroreAcquisto.jsp").forward(req, resp);
         }else{
             int eventId = Integer.parseInt(evento);
-            if(!GestioneEventi_MostreService.validatePrenotazione(eventId, data, Integer.parseInt(numeroBiglietti))){
+            if(!GestioneMostreService.validatePrenotazione(eventId, data, Integer.parseInt(numeroBiglietti))){
                 req.setAttribute("infoErrore", "Combinazione data/evento non valida");
                 req.getRequestDispatcher("WEB-INF/errors/erroreAcquisto.jsp").forward(req, resp);
             }
@@ -61,7 +61,7 @@ public class ShopPhase2redirect extends HttpServlet {
         session.setAttribute("data", data);
         session.setAttribute("eventId", Integer.parseInt(evento));
         session.setAttribute("numeroBiglietti", Integer.parseInt(numeroBiglietti));
-        session.setAttribute("price", GestioneEventi_MostreService.getPrice(Integer.parseInt(evento)));
+        session.setAttribute("price", GestioneMostreService.getPrice(Integer.parseInt(evento)));
         req.getRequestDispatcher("WEB-INF/pages/ticketShopPhase2.jsp").forward(req, resp);
     }
 }
