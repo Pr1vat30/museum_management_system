@@ -25,9 +25,7 @@ public class AdminDao {
                         resultSet.getString("admin_name"),
                         resultSet.getString("admin_surname"),
                         resultSet.getString("admin_email"),
-                        resultSet.getString("admin_password"),
-                        resultSet.getString("admin_phone"),
-                        resultSet.getDouble("admin_salary"));
+                        resultSet.getString("admin_password"));
             } else return null;
             resultSet.close(); statement.close();
             return admin;

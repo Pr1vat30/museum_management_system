@@ -26,23 +26,23 @@
         <div class="sidebar-content">
             <ul class="lists">
                 <li class="list">
-                    <a href="admin-nav-servlet?pg=homepage" class="nav-link">
+                    <a href="staff-nav-servlet?pg=homepage" class="nav-link">
                         <i class='bx bx-home-alt icon'></i>
                         <span class="link">Homepage</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="admin-nav-servlet?pg=notification" class="nav-link">
+                    <a href="staff-nav-servlet?pg=notification" class="nav-link">
                         <i class='bx bx-package icon'></i>
                         <span class="link">Notitication</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="admin-nav-servlet?pg=manage_staff" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class='bx bx-category icon'></i>
-                        <span class="link">Mange Staff</span>
+                        <span class="link">Mange Arts</span>
                     </a>
                 </li>
             </ul>

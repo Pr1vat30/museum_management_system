@@ -8,17 +8,17 @@ public class Admin {
     private String password;
     private String email;
 
-    public Admin(int id, String cf, String name, String surname, String password, String email) {
-        this.admin_id = id;
-        this.admin_cf = cf;
+    public Admin(int admin_id, String admin_cf, String name, String surname, String password, String email) {
+        this.admin_id = admin_id;
+        this.admin_cf = admin_cf;
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.email = email;
     }
 
-    public Admin(String cf, String name, String surname, String password, String email, String phone, double salary) {
-        this.admin_cf = cf;
+    public Admin(String admin_cf, String name, String surname, String password, String email) {
+        this.admin_cf = admin_cf;
         this.name = name;
         this.surname = surname;
         this.password = password;

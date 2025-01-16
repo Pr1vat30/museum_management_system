@@ -1,4 +1,4 @@
-package museum_management_system.Presentation.Controllers.Admin;
+package museum_management_system.Presentation.Controllers.Staff;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -7,11 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import museum_management_system.Application.Service.MessageService;
-import museum_management_system.Application.Service.StaffService;
 
 import java.io.IOException;
 
-@WebServlet(name = "adminServlet", value = "/admin-nav-servlet")
+@WebServlet(name = "staffServlet", value = "/staff-nav-servlet")
 public class GeneralController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -27,9 +26,6 @@ public class GeneralController extends HttpServlet {
                 case "notification":
                     notification(request, response);
                     break;
-                case "manage_staff":
-                    manage_staff(request, response);
-                    break;
                 default:
                     System.out.println("Invalid page parameter");
                     break;
@@ -38,27 +34,17 @@ public class GeneralController extends HttpServlet {
     }
 
     public void homepage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String address = "/WEB-INF/pages/admin_section/homepage.jsp";
+        String address = "/WEB-INF/pages/staff_section/homepage.jsp";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }
 
     public void notification(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String address = "/WEB-INF/pages/admin_section/notification.jsp";
+        String address = "/WEB-INF/pages/staff_section/notification.jsp";
 
         MessageService messageService = new MessageService();
         request.setAttribute("messages", messageService.get());
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-        dispatcher.forward(request, response);
-    }
-
-    public void manage_staff(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String address = "/WEB-INF/pages/admin_section/manage_staff.jsp";
-
-        StaffService staffService = new StaffService();
-        request.setAttribute("staff", staffService.get());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);

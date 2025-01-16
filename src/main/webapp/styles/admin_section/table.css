@@ -170,7 +170,7 @@ tr:hover td {
 .field {
     display: flex;
     flex-direction: column;
-    flex: auto;
+    width: 100%;
 }
 
 .form-content.product {

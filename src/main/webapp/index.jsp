@@ -22,6 +22,10 @@
                 <h1>Welcome, User!</h1>
                 <p>You have standard user access.</p>
             </c:when>
+            <c:when test="${user.role == 'staff'}">
+                <h1>Welcome, Staff!</h1>
+                <p>You have staff user access.</p>
+            </c:when>
         </c:choose>
     </c:when>
     <c:otherwise>
