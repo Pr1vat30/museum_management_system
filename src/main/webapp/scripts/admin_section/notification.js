@@ -54,7 +54,7 @@ function deleteResource(type, id) {
             updateTable(json, type);
         }
     };
-    xhttp.open("GET", "admin-message-servlet?op=delete_message" + "&id=" + id);
+    xhttp.open("POST", "admin-message-servlet?op=delete_message" + "&id=" + id);
     xhttp.send();
 }
 

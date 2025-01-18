@@ -1,0 +1,56 @@
+drop database if exists DbMuseum;
+create database if not exists DbMuseum;
+use DbMuseum;
+
+# CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON DbMuseum.* TO 'user'@'localhost';
+
+CREATE TABLE User (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(50) NOT NULL, 
+    user_password VARCHAR(255) NOT NULL,     
+    user_email VARCHAR(100) NOT NULL UNIQUE, 
+    user_phone VARCHAR(100) NOT NULL 
+);
+
+CREATE TABLE Admin (
+	admin_id INT AUTO_INCREMENT PRIMARY KEY,
+    admin_cf VARCHAR(16) NOT NULL UNIQUE, 
+    admin_name VARCHAR(50) NOT NULL,
+    admin_surname VARCHAR(50) NOT NULL,       
+    admin_email VARCHAR(100) NOT NULL UNIQUE, 
+    admin_password VARCHAR(255) NOT NULL 
+);
+
+CREATE TABLE Staff (
+    staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff_cf VARCHAR(16) NOT NULL UNIQUE, 
+    staff_name VARCHAR(50) NOT NULL,          
+    staff_surname VARCHAR(50) NOT NULL,       
+    staff_email VARCHAR(100) NOT NULL UNIQUE,
+	staff_password VARCHAR(255) NOT NULL,   
+    staff_salary DECIMAL(10, 2) NOT NULL,
+    type_contract ENUM('Full-time', 'Part-time', 'Stage') NOT NULL
+);
+
+CREATE TABLE Message (
+	message_id INT AUTO_INCREMENT PRIMARY KEY,
+    message_title VARCHAR(50) NOT NULL, 
+    message_object VARCHAR(50) NOT NULL,
+    message_content VARCHAR(50) NOT NULL,       
+    send_date DATE NOT NULL
+);
+
+
+CREATE TABLE Arts (
+  art_id INT AUTO_INCREMENT PRIMARY KEY,
+  art_name VARCHAR(50) NOT NULL, 
+  art_desc VARCHAR(50) NOT NULL, 
+  art_artist VARCHAR(50) NOT NULL, 
+  art_length VARCHAR(50) NOT NULL, 
+  art_height VARCHAR(50) NOT NULL,
+  art_image VARCHAR(100) NOT NULL
+);
+
+
+

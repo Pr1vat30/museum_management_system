@@ -59,7 +59,7 @@ function deleteResource(id) {
             updateTable(json);
         }
     };
-    xhttp.open("GET", "admin-staff-servlet?op=delete_staff" + "&id=" + id);
+    xhttp.open("POST", "admin-staff-servlet?op=delete_staff" + "&id=" + id);
     xhttp.send();
 }
 

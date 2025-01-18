@@ -35,12 +35,12 @@
                 <li class="list">
                     <a href="staff-nav-servlet?pg=notification" class="nav-link">
                         <i class='bx bx-package icon'></i>
-                        <span class="link">Notitication</span>
+                        <span class="link">Notification</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="#" class="nav-link">
+                    <a href="staff-nav-servlet?pg=manage_arts" class="nav-link">
                         <i class='bx bx-category icon'></i>
                         <span class="link">Mange Arts</span>
                     </a>

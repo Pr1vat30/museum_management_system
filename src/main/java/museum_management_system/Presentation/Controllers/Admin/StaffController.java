@@ -6,9 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import museum_management_system.Application.Service.MessageService;
 import museum_management_system.Application.Service.StaffService;
-import museum_management_system.Storage.Model.Message;
 import museum_management_system.Storage.Model.Staff;
 
 import java.io.IOException;
@@ -16,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "staffServlet", value = "/admin-staff-servlet")
+@WebServlet(name = "m-staffServlet", value = "/admin-staff-servlet")
 public class StaffController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
