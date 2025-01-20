@@ -45,11 +45,25 @@
                         <span class="link">Mange Arts</span>
                     </a>
                 </li>
+
+                <li class="list">
+                    <a href="staff-nav-servlet?pg=event" class="nav-link">
+                        <i class='bx bx-category icon'></i>
+                        <span class="link">Mange Event</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="staff-nav-servlet?pg=ticket" class="nav-link">
+                        <i class='bx bx-category icon'></i>
+                        <span class="link">Mange Ticket</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="bottom-content">
                 <li class="list">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class='bx bx-cog icon'></i>
                         <span class="link">Setting</span>
                     </a>

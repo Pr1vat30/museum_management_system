@@ -11,7 +11,6 @@ import jakarta.servlet.http.Part;
 import museum_management_system.Application.Service.ArtsService;
 import museum_management_system.Storage.Model.Art;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;

@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import museum_management_system.Application.Service.ArtsService;
+import museum_management_system.Application.Service.EventService;
 import museum_management_system.Application.Service.MessageService;
+import museum_management_system.Application.Service.TicketService;
 
 import java.io.IOException;
 
@@ -29,6 +31,12 @@ public class GeneralController extends HttpServlet {
                     break;
                 case "manage_arts":
                     manage_arts(request, response);
+                    break;
+                case "event":
+                    event(request, response);
+                    break;
+                case "ticket":
+                    ticket(request, response);
                     break;
                 default:
                     System.out.println("Invalid page parameter");
@@ -59,6 +67,26 @@ public class GeneralController extends HttpServlet {
 
         ArtsService artsService = new ArtsService();
         request.setAttribute("arts", artsService.get());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+        dispatcher.forward(request, response);
+    }
+
+    public void event(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String address = "/WEB-INF/pages/staff_section/event.jsp";
+
+        EventService eventService = new EventService();
+        request.setAttribute("events", eventService.get());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+        dispatcher.forward(request, response);
+    }
+
+    public void ticket(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String address = "/WEB-INF/pages/staff_section/ticket.jsp";
+
+        TicketService ticketService = new TicketService();
+        request.setAttribute("tickets", ticketService.get());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);

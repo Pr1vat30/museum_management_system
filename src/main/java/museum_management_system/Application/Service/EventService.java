@@ -1,44 +1,54 @@
 package museum_management_system.Application.Service;
 
-import museum_management_system.Storage.Dao.MessageDao;
-import museum_management_system.Storage.Model.Message;
+import museum_management_system.Storage.Dao.EventDao;
+import museum_management_system.Storage.Model.Event;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
 public class EventService {
 
-    public List<Message> save(Map<String, Object> jsonMap) {
-        Message message = new Message(
-                (String) jsonMap.get("title"),
-                (String) jsonMap.get("object"),
-                (String) jsonMap.get("content")
-        );
-        MessageDao messageDao = new MessageDao();
-        messageDao.InsertMessage(message);
-        return messageDao.GetMessages();
+    public List<Event> save(Map<String, Object> jsonMap) {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Event event = null;
+        try {
+            event = new Event(
+                    dateFormat.parse((String) jsonMap.get("start_date")),
+                    dateFormat.parse((String) jsonMap.get("end_date")),
+                    Integer.parseInt((String) jsonMap.get("seats")),
+                    Integer.parseInt((String) jsonMap.get("seats")),
+                    (String) jsonMap.get("desc"),
+                    (String) jsonMap.get("name")
+            );
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        EventDao eventDao = new EventDao();
+        jsonMap.put("event_id", String.valueOf(eventDao.insertEvent(event)));
+
+        TicketService ticketService = new TicketService();
+        ticketService.save(jsonMap);
+
+        return eventDao.GetEvents();
     }
 
-    public List<Message> delete(int message_id) {
-        MessageDao messageDao = new MessageDao();
-        messageDao.DeleteMessage(message_id);
-        return messageDao.GetMessages();
+    public List<Event> delete(int event_id) {
+        EventDao eventDao = new EventDao();
+        eventDao.DeleteEvent(event_id);
+        return eventDao.GetEvents();
     }
 
-    public List<Message> update(Map<String, Object> jsonMap) {
-        Message message = new Message(
-                (String) jsonMap.get("title"),
-                (String) jsonMap.get("object"),
-                (String) jsonMap.get("content")
-        );
-        message.setMessage_id(Integer.parseInt((String) jsonMap.get("message_id")));
-        MessageDao messageDao = new MessageDao();
-        messageDao.UpdateMessage(message);
-        return messageDao.GetMessages();
+    public List<Event> get() {
+        EventDao eventDao = new EventDao();
+        return eventDao.GetEvents();
     }
 
-    public List<Message> get() {
-        MessageDao messageDao = new MessageDao();
-        return messageDao.GetMessages();
+    public List<Event> update(Map<String, Object> jsonMap) {
+
     }
 }

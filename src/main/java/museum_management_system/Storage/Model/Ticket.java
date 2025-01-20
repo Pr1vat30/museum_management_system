@@ -3,20 +3,21 @@ package museum_management_system.Storage.Model;
 public class Ticket {
 
     private int ticket_id;
-    private String ticket_type;
-    private Double ticket_price;
+    private String type;
+    private Double price;
     private int event_id;
 
-    public Ticket(int ticket_id, String ticket_type, Double ticket_price, int event_id) {
+    public Ticket(int ticket_id, String type, Double price, int event_id) {
         this.ticket_id = ticket_id;
-        this.ticket_type = ticket_type;
-        this.ticket_price = ticket_price;
+        this.type = type;
+        this.price = price;
         this.event_id = event_id;
     }
 
-    public Ticket(String ticket_type, Double ticket_price) {
-        this.ticket_type = ticket_type;
-        this.ticket_price = ticket_price;
+    public Ticket(String type, Double price, int event_id) {
+        this.type = type;
+        this.price = price;
+        this.event_id = event_id;
     }
 
     public Ticket() {}
@@ -29,20 +30,20 @@ public class Ticket {
         this.ticket_id = ticket_id;
     }
 
-    public String getTicket_type() {
-        return ticket_type;
+    public String getType() {
+        return type;
     }
 
-    public void setTicket_type(String ticket_type) {
-        this.ticket_type = ticket_type;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Double getTicket_price() {
-        return ticket_price;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setTicket_price(Double ticket_price) {
-        this.ticket_price = ticket_price;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public int getEvent_id() {

@@ -66,7 +66,7 @@ CREATE TABLE Tickets (
   ticket_type VARCHAR(50) NOT NULL, 
   ticket_price DECIMAL(10, 2) NOT NULL,
   event_id INT NOT NULL,
-  FOREIGN KEY (event_id) REFERENCES Events (event_id) ON UPDATE CASCADE
+  FOREIGN KEY (event_id) REFERENCES Events (event_id) ON DELETE CASCADE
 );	
 
 

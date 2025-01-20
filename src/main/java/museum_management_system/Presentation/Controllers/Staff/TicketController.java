@@ -12,18 +12,17 @@ import museum_management_system.Storage.Model.Event;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
-@WebServlet(name = "eventServlet", value = "/staff-event-servlet")
-public class EventController extends HttpServlet {
+@WebServlet(name = "ticketServlet", value = "/staff-ticket-servlet")
+public class TicketController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         switch (request.getParameter("op")) {
-            case "insert_event": insertEvent(request, response); break;
-            case "update_event": updateEvent(request, response); break;
-            case "delete_event": deleteEvent(request, response); break;
+            case "insert_ticket": insertEvent(request, response); break;
+            case "update_ticket": updateEvent(request, response); break;
+            case "delete_ticket": deleteEvent(request, response); break;
             default: System.out.println("Invalid operation"); break;
         }
     }
@@ -33,11 +32,11 @@ public class EventController extends HttpServlet {
     }
 
     private void updateEvent(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int event_id = Integer.parseInt(request.getParameter("id"));
         Gson gson = new Gson();
-        Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
 
         EventService eventService = new EventService();
-        List<Event> events = eventService.update(jsonMap);
+        List<Event> events = eventService.delete(event_id);
 
         String json = gson.toJson(events);
         response.setContentType("application/json");
@@ -48,11 +47,11 @@ public class EventController extends HttpServlet {
     }
 
     private void insertEvent(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int event_id = Integer.parseInt(request.getParameter("id"));
         Gson gson = new Gson();
-        Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
 
         EventService eventService = new EventService();
-        List<Event> events = eventService.save(jsonMap);
+        List<Event> events = eventService.delete(event_id);
 
         String json = gson.toJson(events);
         response.setContentType("application/json");
@@ -76,5 +75,4 @@ public class EventController extends HttpServlet {
             out.flush();
         }
     }
-
 }
