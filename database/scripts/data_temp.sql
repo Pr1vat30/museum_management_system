@@ -62,6 +62,40 @@ INSERT INTO Arts (art_name, art_desc, art_artist, art_length, art_height, art_im
 ('American Gothic', 'Regionalismo', 'Grant Wood', '78 cm', '65.3 cm', 'https://example.com/american_gothic.jpg'),
 ('Nighthawks', 'Realismo americano', 'Edward Hopper', '84.1 cm', '152.4 cm', 'https://example.com/nighthawks.jpg'),
 ('The Birth of Venus', 'Rinascimento', 'Sandro Botticelli', '172.5 cm', '278.9 cm', 'https://example.com/birth_of_venus.jpg'),
-('Las Meninas', 'Barocco', 'Diego Velázquez', '318 cm', '276 cm', 'https://example.com/las_meninas.jpg')
+('Las Meninas', 'Barocco', 'Diego Velázquez', '318 cm', '276 cm', 'https://example.com/las_meninas.jpg');
 
+-- Inserimento di 15 entry nella tabella Events
+INSERT INTO Events (start_date, end_date, n_seats, n_seats_available, event_desc, event_name) VALUES 
+  ('2025-01-01 10:00:00', '2025-01-15 18:00:00', 100, 50, 'Mostra di arte moderna', 'Arte Moderna 1'),
+  ('2025-01-05 09:00:00', '2025-01-20 17:00:00', 120, 60, 'Esposizione di fotografie', 'Fotografia 2'),
+  ('2025-01-10 12:00:00', '2025-01-25 16:00:00', 150, 70, 'Collezione di dipinti rinascimentali', 'Rinascimento 3'),
+  ('2025-02-01 10:00:00', '2025-02-10 18:00:00', 80, 40, 'Sculture contemporanee', 'Scultura 4'),
+  ('2025-02-15 11:00:00', '2025-03-01 19:00:00', 200, 120, 'Arte astratta e sperimentale', 'Astratto 5'),
+  ('2025-03-05 09:30:00', '2025-03-20 18:30:00', 90, 45, 'Mostra di street art', 'Street Art 6'),
+  ('2025-03-25 10:00:00', '2025-04-05 17:00:00', 110, 55, 'Esposizione storica', 'Storico 7'),
+  ('2025-04-10 09:00:00', '2025-04-20 18:00:00', 130, 65, 'Fotografie naturalistiche', 'Natura 8'),
+  ('2025-04-25 12:00:00', '2025-05-10 16:30:00', 180, 90, 'Esposizione di design', 'Design 9'),
+  ('2025-05-15 10:00:00', '2025-05-30 17:30:00', 170, 85, 'Arte concettuale', 'Concettuale 10'),
+  ('2025-06-01 11:00:00', '2025-06-15 18:30:00', 100, 50, 'Collezione di arte giapponese', 'Giapponese 11'),
+  ('2025-06-20 09:00:00', '2025-07-05 17:00:00', 120, 60, 'Mostra di arte antica', 'Antico 12'),
+  ('2025-07-10 10:00:00', '2025-07-25 18:00:00', 150, 75, 'Esposizione di arte futurista', 'Futurismo 13'),
+  ('2025-08-01 12:00:00', '2025-08-15 19:00:00', 80, 40, 'Mostra di calligrafia', 'Calligrafia 14'),
+  ('2025-08-20 09:30:00', '2025-09-01 16:30:00', 200, 100, 'Esposizione d\'arte digitale', 'Digitale 15');
 
+-- Inserimento di 15 entry nella tabella Tickets
+INSERT INTO Tickets (ticket_type, ticket_price, event_id) VALUES 
+  ('Adult', 15.00, 1),
+  ('Child', 10.00, 2),
+  ('Student', 12.50, 3),
+  ('Senior', 13.00, 4),
+  ('Group', 50.00, 5),
+  ('Adult', 16.00, 6),
+  ('Child', 8.50, 7),
+  ('Student', 11.50, 8),
+  ('Senior', 14.00, 9),
+  ('Group', 45.00, 10),
+  ('Adult', 18.00, 11),
+  ('Child', 9.00, 12),
+  ('Student', 13.50, 13),
+  ('Senior', 12.00, 14),
+  ('Group', 55.00, 15);

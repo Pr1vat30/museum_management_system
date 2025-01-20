@@ -41,7 +41,6 @@ CREATE TABLE Message (
     send_date DATE NOT NULL
 );
 
-
 CREATE TABLE Arts (
   art_id INT AUTO_INCREMENT PRIMARY KEY,
   art_name VARCHAR(50) NOT NULL, 
@@ -51,6 +50,24 @@ CREATE TABLE Arts (
   art_height VARCHAR(50) NOT NULL,
   art_image VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE Events (
+  event_id INT AUTO_INCREMENT PRIMARY KEY,
+  start_date datetime NOT NULL,
+  end_date datetime NOT NULL,
+  n_seats int NOT NULL,
+  n_seats_available int DEFAULT '0',
+  event_desc varchar(1000) NOT NULL,
+  event_name varchar(20) NOT NULL
+);
+
+CREATE TABLE Tickets (
+  ticket_id INT AUTO_INCREMENT PRIMARY KEY,
+  ticket_type VARCHAR(50) NOT NULL, 
+  ticket_price DECIMAL(10, 2) NOT NULL,
+  event_id INT NOT NULL,
+  FOREIGN KEY (event_id) REFERENCES Events (event_id) ON UPDATE CASCADE
+);	
 
 
 
