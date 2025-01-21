@@ -12,20 +12,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/users_section/homepage.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/index.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/admin_section/navbar.css">
   <title>Homepage</title>
 </head>
 <body>
-
-<jsp:include page="header.jsp"/>
-
-<main>
-
-</main>
-
-<jsp:include page="footer.jsp"/>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="${pageContext.request.contextPath}/scripts/users_section/header.js" defer></script>
+<header> <jsp:include page="navbar.jsp"/></header>
+<div style="width: 100%; height: 100px;"></div>
+<jsp:include page="../box_info.jsp"/>
+<script src="${pageContext.request.contextPath}/scripts/staff_section/navbar.js" defer></script>
 </body>
 </html>

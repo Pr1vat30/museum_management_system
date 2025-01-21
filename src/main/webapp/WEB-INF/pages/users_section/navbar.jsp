@@ -26,39 +26,33 @@
         <div class="sidebar-content">
             <ul class="lists">
                 <li class="list">
-                    <a href="staff-nav-servlet?pg=homepage" class="nav-link">
+                    <a href="users-nav-servlet?pg=homepage" class="nav-link">
                         <i class='bx bx-home-alt icon'></i>
                         <span class="link">Homepage</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="staff-nav-servlet?pg=notification" class="nav-link">
+                    <a href="users-nav-servlet?pg=notification" class="nav-link">
                         <i class='bx bx-package icon'></i>
                         <span class="link">Notification</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="staff-nav-servlet?pg=manage_arts" class="nav-link">
+                    <a href="users-nav-servlet?pg=" class="nav-link">
                         <i class='bx bx-category icon'></i>
-                        <span class="link">Mange Arts</span>
+                        <span class="link">Ticket Shop</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="staff-nav-servlet?pg=event" class="nav-link">
+                    <a href="users-nav-servlet?pg=" class="nav-link">
                         <i class='bx bx-category icon'></i>
-                        <span class="link">Mange Event</span>
+                        <span class="link">Ticket History</span>
                     </a>
                 </li>
 
-                <li class="list">
-                    <a href="staff-nav-servlet?pg=ticket" class="nav-link">
-                        <i class='bx bx-category icon'></i>
-                        <span class="link">Mange Ticket</span>
-                    </a>
-                </li>
             </ul>
 
             <div class="bottom-content">

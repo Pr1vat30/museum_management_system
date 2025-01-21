@@ -10,7 +10,7 @@
     <div class="logo main">
         <div class="logo-space">
             <i class='bx bx-menu menu-icon'></i>
-            <span class="logo-name">Dashboard</span>
+            <span class="logo-name">Museum Management System</span>
         </div>
         <div class="logo-message">
             <span><c:out value="Welcome ${sessionScope.user.name}"/></span>
