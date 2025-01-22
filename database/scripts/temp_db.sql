@@ -2,8 +2,8 @@ drop database if exists DbMuseum;
 create database if not exists DbMuseum;
 use DbMuseum;
 
-# CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-# GRANT ALL PRIVILEGES ON DbMuseum.* TO 'user'@'localhost';
+# CREATE USER 'root' IDENTIFIED BY 'Uifhd67y';
+# GRANT ALL PRIVILEGES ON DbMuseum.* TO 'root';
 
 CREATE TABLE User (
     user_id INT AUTO_INCREMENT PRIMARY KEY,

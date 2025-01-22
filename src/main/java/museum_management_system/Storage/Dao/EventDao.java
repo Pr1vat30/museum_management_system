@@ -64,7 +64,7 @@ public class EventDao {
     }
 
     public boolean UpdateEvent(Event event) {
-
+        return true;
     }
 
     public boolean DeleteEvent(int event_id) {
