@@ -37,7 +37,7 @@
             </c:otherwise>
         </c:choose>
     </section>
-    <jsp:include page="WEB-INF/pages/box_info.jsp"/>
+    <jsp:include page="WEB-INF/pages/visitor_section/box_info.jsp"/>
 </main>
 <jsp:include page="WEB-INF/pages/visitor_section/footer.jsp"/>
 </body>

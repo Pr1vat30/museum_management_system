@@ -3,7 +3,7 @@
 <section class="box-info">
   <ul id = "functions">
     <li>
-      <a href="javascript:void(0);" onclick="showMaintenanceDialog()"> <!-- Link per Esposizioni -->
+      <a href="visitors-nav-servlet?pg=art"> <!-- Link per Esposizioni -->
         <i class="icon">🎨</i>
         <div class="text">
           <h3>Esposizioni</h3>
@@ -12,7 +12,7 @@
       </a>
     </li>
     <li>
-      <a href="javascript:void(0);" onclick="showMaintenanceDialog()"> <!-- Link per Eventi -->
+      <a href="visitors-nav-servlet?pg=event"> <!-- Link per Eventi -->
         <i class="icon">📅</i>
         <div class="text">
           <h3>Eventi</h3>

@@ -40,14 +40,14 @@
                 </li>
 
                 <li class="list">
-                    <a href="users-nav-servlet?pg=" class="nav-link">
+                    <a href="users-nav-servlet?pg=shop" class="nav-link">
                         <i class='bx bx-category icon'></i>
                         <span class="link">Ticket Shop</span>
                     </a>
                 </li>
 
                 <li class="list">
-                    <a href="users-nav-servlet?pg=" class="nav-link">
+                    <a href="users-nav-servlet?pg=history" class="nav-link">
                         <i class='bx bx-category icon'></i>
                         <span class="link">Ticket History</span>
                     </a>

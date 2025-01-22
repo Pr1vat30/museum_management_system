@@ -9,7 +9,13 @@
     <title>Notification Page</title>
 </head>
 <body>
-<header> <jsp:include page="header.jsp"/></header>
+<jsp:include page="header.jsp"/>
+<div style = "margin-left: 30px">
+    <a href="visitors-nav-servlet?pg=homepage" class="nav-link">
+        <i class='bx bx-home-alt icon'></i>
+        <span class="link">Homepage</span>
+    </a>
+</div>
 <main>
     <section class="container-table">
         <div class="table-header">

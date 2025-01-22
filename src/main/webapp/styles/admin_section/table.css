@@ -12,6 +12,7 @@ header {
 }
 
 .container-table {
+    width: 95%;
     background-color: white;
     border-radius: 10px;
     margin: 50px;
@@ -63,14 +64,13 @@ input, textarea, select {
 }
 
 .table-section {
+    width: 100%;
     height: 600px;
     overflow: auto;
 }
 
 table {
     width: 100%;
-    table-layout: fixed;
-    min-width: 800px;
     border-collapse: collapse;
 }
 

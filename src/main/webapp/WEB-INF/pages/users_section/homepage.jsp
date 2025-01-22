@@ -19,7 +19,7 @@
 <body>
 <header> <jsp:include page="navbar.jsp"/></header>
 <div style="width: 100%; height: 100px;"></div>
-<jsp:include page="../box_info.jsp"/>
+<jsp:include page="box_info.jsp"/>
 <script src="${pageContext.request.contextPath}/scripts/staff_section/navbar.js" defer></script>
 </body>
 </html>
