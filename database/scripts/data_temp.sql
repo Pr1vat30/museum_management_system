@@ -66,21 +66,21 @@ INSERT INTO Arts (art_name, art_desc, art_artist, art_length, art_height, art_im
 
 -- Inserimento di 15 entry nella tabella Events
 INSERT INTO Events (start_date, end_date, n_seats, n_seats_available, event_desc, event_name) VALUES 
-  ('2025-01-01 10:00:00', '2025-01-15 18:00:00', 100, 50, 'Mostra di arte moderna', 'Arte Moderna 1'),
-  ('2025-01-05 09:00:00', '2025-01-20 17:00:00', 120, 60, 'Esposizione di fotografie', 'Fotografia 2'),
-  ('2025-01-10 12:00:00', '2025-01-25 16:00:00', 150, 70, 'Collezione di dipinti rinascimentali', 'Rinascimento 3'),
-  ('2025-02-01 10:00:00', '2025-02-10 18:00:00', 80, 40, 'Sculture contemporanee', 'Scultura 4'),
-  ('2025-02-15 11:00:00', '2025-03-01 19:00:00', 200, 120, 'Arte astratta e sperimentale', 'Astratto 5'),
-  ('2025-03-05 09:30:00', '2025-03-20 18:30:00', 90, 45, 'Mostra di street art', 'Street Art 6'),
-  ('2025-03-25 10:00:00', '2025-04-05 17:00:00', 110, 55, 'Esposizione storica', 'Storico 7'),
-  ('2025-04-10 09:00:00', '2025-04-20 18:00:00', 130, 65, 'Fotografie naturalistiche', 'Natura 8'),
-  ('2025-04-25 12:00:00', '2025-05-10 16:30:00', 180, 90, 'Esposizione di design', 'Design 9'),
-  ('2025-05-15 10:00:00', '2025-05-30 17:30:00', 170, 85, 'Arte concettuale', 'Concettuale 10'),
-  ('2025-06-01 11:00:00', '2025-06-15 18:30:00', 100, 50, 'Collezione di arte giapponese', 'Giapponese 11'),
-  ('2025-06-20 09:00:00', '2025-07-05 17:00:00', 120, 60, 'Mostra di arte antica', 'Antico 12'),
-  ('2025-07-10 10:00:00', '2025-07-25 18:00:00', 150, 75, 'Esposizione di arte futurista', 'Futurismo 13'),
-  ('2025-08-01 12:00:00', '2025-08-15 19:00:00', 80, 40, 'Mostra di calligrafia', 'Calligrafia 14'),
-  ('2025-08-20 09:30:00', '2025-09-01 16:30:00', 200, 100, 'Esposizione d\'arte digitale', 'Digitale 15');
+  ('2025-01-01', '2025-01-15', 100, 50, 'Mostra di arte moderna', 'Arte Moderna 1'),
+  ('2025-01-05', '2025-01-20', 120, 60, 'Esposizione di fotografie', 'Fotografia 2'),
+  ('2025-01-10', '2025-01-25', 150, 70, 'Collezione di dipinti rinascimentali', 'Rinascimento 3'),
+  ('2025-02-01', '2025-02-10', 80, 40, 'Sculture contemporanee', 'Scultura 4'),
+  ('2025-02-15', '2025-03-01', 200, 120, 'Arte astratta e sperimentale', 'Astratto 5'),
+  ('2025-03-05', '2025-03-20', 90, 45, 'Mostra di street art', 'Street Art 6'),
+  ('2025-03-25', '2025-04-05', 110, 55, 'Esposizione storica', 'Storico 7'),
+  ('2025-04-10', '2025-04-20', 130, 65, 'Fotografie naturalistiche', 'Natura 8'),
+  ('2025-04-25', '2025-05-10', 180, 90, 'Esposizione di design', 'Design 9'),
+  ('2025-05-15', '2025-05-30', 170, 85, 'Arte concettuale', 'Concettuale 10'),
+  ('2025-06-01', '2025-06-15', 100, 50, 'Collezione di arte giapponese', 'Giapponese 11'),
+  ('2025-06-20', '2025-07-05', 120, 60, 'Mostra di arte antica', 'Antico 12'),
+  ('2025-07-10', '2025-07-25', 150, 75, 'Esposizione di arte futurista', 'Futurismo 13'),
+  ('2025-08-01', '2025-08-15', 80, 40, 'Mostra di calligrafia', 'Calligrafia 14'),
+  ('2025-08-20', '2025-09-01', 200, 100, 'Esposizione d\'arte digitale', 'Digitale 15');
 
 -- Inserimento di 15 entry nella tabella Tickets
 INSERT INTO Tickets (ticket_type, ticket_price, event_id) VALUES 
@@ -99,3 +99,15 @@ INSERT INTO Tickets (ticket_type, ticket_price, event_id) VALUES
   ('Student', 13.50, 13),
   ('Senior', 12.00, 14),
   ('Group', 55.00, 15);
+
+INSERT INTO Purchases (purchase_date, ticket_id, event_id, user_id) VALUES 
+('2025-01-15', 1, 1, 1),
+('2025-01-18', 2, 1, 2),
+('2025-01-20', 3, 2, 3),
+('2025-01-22', 4, 3, 4),
+('2025-01-23', 5, 3, 5),
+('2025-01-24', 6, 4, 6),
+('2025-01-25', 7, 5, 7),
+('2025-01-26', 8, 6, 8),
+('2025-01-28', 9, 7, 9),
+('2025-01-30', 10, 8, 10);

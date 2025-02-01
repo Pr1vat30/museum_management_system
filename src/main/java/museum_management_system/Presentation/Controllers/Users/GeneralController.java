@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import museum_management_system.Application.Service.ArtsService;
 import museum_management_system.Application.Service.EventService;
 import museum_management_system.Application.Service.MessageService;
+import museum_management_system.Application.Service.StoreService;
 
 import java.io.IOException;
 
@@ -85,10 +86,10 @@ public class GeneralController extends HttpServlet {
     }
 
     public void shop(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String address = "/WEB-INF/pages/users_section/shop/shop.jsp";
+        String address = "/WEB-INF/pages/users_section/shop.jsp";
 
-        ArtsService artsService = new ArtsService();
-        request.setAttribute("arts", artsService.get());
+        StoreService storeService = new StoreService();
+        request.setAttribute("shop_items", storeService.getStore());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
@@ -97,8 +98,8 @@ public class GeneralController extends HttpServlet {
     public void history(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String address = "/WEB-INF/pages/users_section/ticketHistory.jsp";
 
-        ArtsService artsService = new ArtsService();
-        request.setAttribute("arts", artsService.get());
+        StoreService storeService = new StoreService();
+        request.setAttribute("purchases", storeService.getPurchase());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);

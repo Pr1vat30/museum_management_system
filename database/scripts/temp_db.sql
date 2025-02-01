@@ -2,8 +2,9 @@ drop database if exists DbMuseum;
 create database if not exists DbMuseum;
 use DbMuseum;
 
-# CREATE USER 'root' IDENTIFIED BY 'Uifhd67y';
-# GRANT ALL PRIVILEGES ON DbMuseum.* TO 'root';
+# CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON DbMuseum.* TO 'user'@'localhost';
+# GRANT SUPER ON *.* TO 'user'@'localhost';
 
 CREATE TABLE User (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,12 +54,12 @@ CREATE TABLE Arts (
 
 CREATE TABLE Events (
   event_id INT AUTO_INCREMENT PRIMARY KEY,
-  start_date datetime NOT NULL,
-  end_date datetime NOT NULL,
-  n_seats int NOT NULL,
-  n_seats_available int DEFAULT '0',
-  event_desc varchar(1000) NOT NULL,
-  event_name varchar(20) NOT NULL
+  start_date DATETIME NOT NULL,
+  end_date DATETIME NOT NULL,
+  n_seats INT NOT NULL,
+  n_seats_available INT DEFAULT 0 CHECK (n_seats_available >= 0),
+  event_desc VARCHAR(1000) NOT NULL,
+  event_name VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Tickets (
@@ -67,7 +68,75 @@ CREATE TABLE Tickets (
   ticket_price DECIMAL(10, 2) NOT NULL,
   event_id INT NOT NULL,
   FOREIGN KEY (event_id) REFERENCES Events (event_id) ON DELETE CASCADE
-);	
+);
 
+CREATE TABLE Purchases (
+    purchase_id INT AUTO_INCREMENT PRIMARY KEY,
+    purchase_date DATETIME NOT NULL,
+    ticket_id INT NOT NULL,
+    event_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (ticket_id) REFERENCES Tickets (ticket_id),
+    FOREIGN KEY (event_id) REFERENCES Events (event_id),
+    FOREIGN KEY (user_id) REFERENCES User (user_id)
+);
+
+
+
+CREATE VIEW TicketEventView AS
+SELECT 
+  Tickets.ticket_id,
+  Tickets.ticket_type,
+  Tickets.ticket_price,
+  Events.event_id,
+  Events.event_name,
+  Events.start_date,
+  Events.end_date,
+  Events.n_seats,
+  Events.n_seats_available,
+  Events.event_desc
+FROM 
+  Tickets
+INNER JOIN 
+  Events ON Tickets.event_id = Events.event_id;
+
+
+
+CREATE VIEW TicketEventPurchaseView AS
+SELECT 
+  Tickets.ticket_id,
+  Tickets.ticket_type,
+  Tickets.ticket_price,
+  Events.event_id,
+  Events.event_name,
+  Events.start_date,
+  Events.end_date,
+  Events.n_seats,
+  Events.n_seats_available,
+  Events.event_desc,
+  Purchases.purchase_id,
+  Purchases.purchase_date,
+  Purchases.user_id
+FROM 
+  Tickets
+INNER JOIN 
+  Events ON Tickets.event_id = Events.event_id
+INNER JOIN
+  Purchases ON Purchases.ticket_id = Tickets.ticket_id AND Purchases.event_id = Events.event_id;
+
+
+
+DELIMITER //
+
+CREATE TRIGGER DecreaseSeatsAvailable
+AFTER INSERT ON Purchases
+FOR EACH ROW
+BEGIN
+  UPDATE Events 
+  SET n_seats_available = n_seats_available - 1
+  WHERE event_id = NEW.event_id;
+END //
+
+DELIMITER ;
 
 
