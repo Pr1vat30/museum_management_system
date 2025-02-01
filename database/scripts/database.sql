@@ -44,4 +44,10 @@ CREATE TABLE Staff (
     FOREIGN KEY (supervisor_cf) REFERENCES Admin(admin_cf)
 );
 
-select * from User
+CREATE TABLE Message (
+	message_id INT AUTO_INCREMENT PRIMARY KEY,
+    message_title VARCHAR(50) NOT NULL, 
+    message_object VARCHAR(50) NOT NULL,
+    message_content VARCHAR(50) NOT NULL,       
+    send_date DATE NOT NULL
+);

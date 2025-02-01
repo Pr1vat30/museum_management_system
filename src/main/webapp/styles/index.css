@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    margin-bottom: 120px;
+}
+
+header nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4070f4;
+    color: #ffffff;
+}
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    color: #cce7ff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+main {
+    flex: 1; /* Rende il main "flessibile" per occupare tutto lo spazio disponibile */
+    display: flex;
+    flex-direction: column; /* Disposizione verticale degli elementi */
+    justify-content: flex-start; /* Allinea gli elementi verso l'alto */
+    align-items: center; /* Centra gli elementi orizzontalmente */
+    gap: 20px; /* Spazio tra le sezioni */
+    text-align: center;
+}
+
+.role-message {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Puoi regolare la larghezza come desideri */
+    max-width: 600px; /* Imposta una larghezza massima */
+}
+
+footer {
+    background-color: #f6f9fc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #707070;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Mantiene il colore del testo originale */
+}
+
+/* Layout della sezione box-info */
+#functions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 2px;
+}
+
+#functions, .nav-links{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.box-info li {
+    flex: 1 1 220px; /* Permette agli elementi di adattarsi al layout e di avere una larghezza minima */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box-info li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-info i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    color: #4070f4;
+}
+
+.box-info .text {
+    text-align: center;
+}
+
+.box-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.box-info p {
+    font-size: 14px;
+    color: #666;
+}
+#maintenanceDialog {
+    display: none; /* Nasconde il dialog box inizialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#maintenanceDialog h2 {
+    color: #333;
+}
+
+#maintenanceDialog p {
+    color: #666;
+}
+
+/* Sfondo semi-trasparente */
+#overlay {
+    display: none; /* Nasconde il background overlay inizialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* CSS per il pulsante di chiusura */
+.close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
+
+.text h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.text p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #f6f9fc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #707070;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    header nav .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    .box-info, .table-data {
+        padding: 20px;
+        margin: 30px;
+    }
+
+    .box-info li {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .box-info li i {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .text h3 {
+        font-size: 20px;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+}

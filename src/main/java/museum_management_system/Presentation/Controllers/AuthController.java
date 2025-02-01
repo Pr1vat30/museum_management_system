@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import museum_management_system.Application.Service.AuthService;
 import museum_management_system.Storage.Model.Admin;
+import museum_management_system.Storage.Model.Staff;
 import museum_management_system.Storage.Model.User;
 
 import java.io.IOException;
@@ -51,9 +52,11 @@ public class AuthController extends HttpServlet {
             session.setAttribute("logged", true);
 
             if( user instanceof User ) {
-                response.getWriter().println("access-servlet?pg=homepage");
-            } else if ( user instanceof Admin) {
-                response.getWriter().println("access-servlet?pg=homepage");
+                response.getWriter().println("users-nav-servlet?pg=homepage");
+            } else if ( user instanceof Admin ) {
+                response.getWriter().println("admin-nav-servlet?pg=homepage");
+            } else if ( user instanceof Staff ) {
+                response.getWriter().println("staff-nav-servlet?pg=homepage");
             }
 
         } else response.getWriter().write("error");

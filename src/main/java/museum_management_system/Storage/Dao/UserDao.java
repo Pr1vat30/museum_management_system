@@ -2,7 +2,7 @@ package museum_management_system.Storage.Dao;
 
 import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
-import java.security.NoSuchAlgorithmException;
+
 import java.sql.*;
 
 
@@ -46,7 +46,7 @@ public class UserDao {
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     user_id = generatedKeys.getInt(1);
-                    user.setUser_id(user_id);
+                    user.setId(user_id);
                 } else throw new SQLException("Creating user failed, no ID obtained.");
             }
             return user;
