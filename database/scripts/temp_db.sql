@@ -45,7 +45,7 @@ CREATE TABLE Message (
 CREATE TABLE Arts (
   art_id INT AUTO_INCREMENT PRIMARY KEY,
   art_name VARCHAR(50) NOT NULL, 
-  art_desc VARCHAR(50) NOT NULL, 
+  art_desc VARCHAR(200) NOT NULL,
   art_artist VARCHAR(50) NOT NULL, 
   art_length VARCHAR(50) NOT NULL, 
   art_height VARCHAR(50) NOT NULL,
