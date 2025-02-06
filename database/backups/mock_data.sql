@@ -11,6 +11,19 @@ INSERT INTO User (user_name, user_password, user_email, user_phone) VALUES
 ('Ivy', 'password9', 'ivy@example.com', '9012345678'),
 ('Jack', 'password10', 'jack@example.com', '0123456789');
 
+-- Popola la tabella Payment_method
+INSERT INTO Payment_method (user_id, is_default, card_number, card_expiry_date, card_secret_code) VALUES
+(1, true, '4111111111111111', '12/26', 123),
+(2, true, '4222222222222222', '11/25', 456),
+(3, true, '4333333333333333', '10/24', 789),
+(4, true, '4444444444444444', '09/27', 321),
+(5, true, '4555555555555555', '08/26', 654),
+(6, true, '4666666666666666', '07/25', 987),
+(7, true, '4777777777777777', '06/28', 111),
+(8, true, '4888888888888888', '05/29', 222),
+(9, true, '4999999999999999', '04/30', 333),
+(10, true, '4000000000000000', '03/27', 444);
+
 -- Inserisci dati nella tabella Admin
 INSERT INTO Admin (admin_cf, admin_name, admin_surname, admin_email, admin_password) VALUES
 ('CFADMIN001', 'Laura', 'Rossi', 'laura.rossi.admin@example.com', 'adminpass1'),

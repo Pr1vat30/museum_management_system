@@ -44,7 +44,7 @@ public class SignupController extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("logged", true);
 
-            response.getWriter().println("access-servlet?pg=homepage");
+            response.getWriter().println("users-nav-servlet?pg=homepage");
 
         } else response.getWriter().write("error");
     }
