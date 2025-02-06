@@ -87,9 +87,9 @@ CREATE TABLE Purchases (
     ticket_id INT NOT NULL,
     event_id INT NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (ticket_id) REFERENCES Tickets (ticket_id),
-    FOREIGN KEY (event_id) REFERENCES Events (event_id),
-    FOREIGN KEY (user_id) REFERENCES User (user_id)
+    FOREIGN KEY (ticket_id) REFERENCES Tickets (ticket_id) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES Events (event_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES User (user_id) ON DELETE CASCADE
 );
 
 

@@ -23,13 +23,32 @@ public class StaffFacade {
 
     public void insertStaff(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
-        List<Staff> staff = staffService.save(jsonMap);
+        Staff staff_item = new Staff(
+                (String) jsonMap.get("cf"),
+                (String) jsonMap.get("name"),
+                (String) jsonMap.get("surname"),
+                (String) jsonMap.get("email"),
+                (String) jsonMap.get("password"),
+                Double.parseDouble((String) jsonMap.get("salary")),
+                (String) jsonMap.get("contract")
+        );
+        List<Staff> staff = staffService.save(staff_item);
         sendResponse(response, staff);
     }
 
     public void updateStaff(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
-        List<Staff> staff = staffService.update(jsonMap);
+        Staff staff_item = new Staff(
+                (String) jsonMap.get("cf"),
+                (String) jsonMap.get("name"),
+                (String) jsonMap.get("surname"),
+                (String) jsonMap.get("email"),
+                (String) jsonMap.get("password"),
+                Double.parseDouble((String) jsonMap.get("salary")),
+                (String) jsonMap.get("contract")
+        );
+        staff_item.setStaff_id(Integer.parseInt((String) jsonMap.get("staff_id")));
+        List<Staff> staff = staffService.update(staff_item);
         sendResponse(response, staff);
     }
 

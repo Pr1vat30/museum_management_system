@@ -23,13 +23,24 @@ public class MessageFacade {
 
     public void insertMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
-        List<Message> messages = messageService.save(jsonMap);
+        Message message = new Message(
+                (String) jsonMap.get("title"),
+                (String) jsonMap.get("object"),
+                (String) jsonMap.get("content")
+        );
+        List<Message> messages = messageService.save(message);
         sendResponse(response, messages);
     }
 
     public void updateMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
-        List<Message> messages = messageService.update(jsonMap);
+        Message message = new Message(
+                (String) jsonMap.get("title"),
+                (String) jsonMap.get("object"),
+                (String) jsonMap.get("content")
+        );
+        message.setMessage_id(Integer.parseInt((String) jsonMap.get("message_id")));
+        List<Message> messages = messageService.update(message);
         sendResponse(response, messages);
     }
 
