@@ -55,7 +55,8 @@ public class UserDao {
             }
             return user;
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println(ex.getMessage());
+            return null;
         }
     }
 

@@ -10,20 +10,119 @@ CREATE TABLE User (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(50) NOT NULL, 
     user_password VARCHAR(255) NOT NULL,     
-    user_email VARCHAR(100) NOT NULL UNIQUE, 
-    user_phone VARCHAR(100) NOT NULL 
+    user_email VARCHAR(100) NOT NULL UNIQUE,
+    user_phone VARCHAR(100) NOT NULL
 );
+DELIMITER //
+CREATE TRIGGER validate_user_name
+    BEFORE INSERT ON User
+    FOR EACH ROW
+BEGIN
+    -- Verifica formato e lunghezza
+    IF LENGTH(NEW.user_name) < 3 OR NEW.user_name NOT REGEXP '^[a-zA-Z]+(?: [a-zA-Z]+)?$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Il nome utente deve essere maggiore di 3 caratteri e contenere solo lettere';
+    END IF;
+END;
+//
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER validate_email
+    BEFORE INSERT ON User
+    FOR EACH ROW
+BEGIN
+    IF NEW.user_email NOT REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Formato email non valido';
+    END IF;
+END;
+//
+DELIMITER ;
+DELIMITER //
+
+CREATE TRIGGER validate_password
+    BEFORE INSERT ON User
+    FOR EACH ROW
+BEGIN
+    -- Verifica che la stringa sia lunga almeno 6 caratteri
+    IF NEW.user_password NOT REGEXP '.{6,}' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'La stringa deve contenere almeno 6 caratteri';
+    END IF;
+
+    -- Verifica che ci sia almeno un numero
+    IF NEW.user_password NOT REGEXP '[0-9]' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'La stringa deve contenere almeno un numero';
+    END IF;
+
+    -- Verifica che ci sia almeno un carattere speciale
+    IF NEW.user_password NOT REGEXP '[[:punct:]]' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'La stringa deve contenere almeno un carattere speciale';
+    END IF;
+END;
+//
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER validate_user_phone
+    BEFORE INSERT ON User
+    FOR EACH ROW
+BEGIN
+    IF NEW.user_phone NOT REGEXP '^([+]?[0-9]{1,4}[-. ]?)?([(]?[0-9]{1,3}[)]?[-. ]?)?([0-9]{1,4}[-. ]?){1,3}[0-9]{1,9}$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Formato numero di telefono non valido';
+    END IF;
+END;
+//
+DELIMITER ;
 
 CREATE TABLE Payment_method (
   payment_id int not null auto_increment,
   user_id int not null,
   is_default boolean default true,
-  card_number varchar(50) not null,
-  card_expiry_date varchar(50) not null,
+  card_number VARCHAR(50) not null,
+  card_expiry_date VARCHAR(50) not null,
   card_secret_code int not null,
   primary key (payment_id),
   foreign key (user_id) references user(user_id)
 );
+DELIMITER //
+CREATE TRIGGER validate_card_number
+    BEFORE INSERT ON Payment_method
+    FOR EACH ROW
+BEGIN
+    IF LENGTH(NEW.card_number) != 16 THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Formato numero carta non valido';
+    END IF;
+END;
+//
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER validate_card_expiry_date
+    BEFORE INSERT ON Payment_method
+    FOR EACH ROW
+BEGIN
+    IF NEW.card_expiry_date NOT REGEXP '^[0-9]{2}/[0-9]{2}$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Formato data scadenza carta non valido';
+    END IF;
+END;
+//
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER validate_card_secret_code
+    BEFORE INSERT ON Payment_method
+    FOR EACH ROW
+BEGIN
+    IF NEW.card_secret_code NOT REGEXP '^[0-9]{3}$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Formato secret code non valido';
+    END IF;
+END;
+//
+DELIMITER ;
 
 CREATE TABLE Admin (
 	admin_id INT AUTO_INCREMENT PRIMARY KEY,

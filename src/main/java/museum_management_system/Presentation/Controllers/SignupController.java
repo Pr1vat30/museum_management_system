@@ -15,7 +15,7 @@ public class SignupController extends HttpServlet {
     private final SignupFacade signupFacade = new SignupFacade();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         String result = signupFacade.handleSignup(request);
         response.getWriter().println(result);
