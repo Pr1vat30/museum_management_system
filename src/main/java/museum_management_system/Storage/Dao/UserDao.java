@@ -15,7 +15,7 @@ public class UserDao {
     }
 
     public UserDao() {
-        this.connection = DatabaseConnection.connection;
+        this.connection = DatabaseConnection.getConnection();
     }
 
     public User SerchUser(String email, String password) {
@@ -42,7 +42,7 @@ public class UserDao {
 
     public User InsertUser(User user, PayMethod payMethod) {
         try {
-            String sql = "INSERT INTO User (user_name, user_password, user_email, user_phone) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO user (user_name, user_password, user_email, user_phone) VALUES (?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
             statement.setString(2, user.getPassword());
@@ -72,7 +72,6 @@ public class UserDao {
             statement.setString(2, payMethod.getCard_number());
             statement.setString(3, payMethod.getCard_expiry_date());
             statement.setString(4, payMethod.getCard_secret_code());
-
             statement.executeUpdate();
         }
     }

@@ -60,6 +60,8 @@ public class SignupFacade {
                     session.setAttribute("logged", true);
 
                     return "users-nav-servlet?pg=homepage";
+                }else{
+                    return "error";
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Errore di validazione: " + e.getMessage());
