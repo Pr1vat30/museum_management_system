@@ -62,7 +62,6 @@ public class SignupTest {
         statement = mock(PreparedStatement.class);
         resultSet = mock(ResultSet.class);
         session = mock(HttpSession.class);
-        //DatabaseConnection.StartConnection();
         test = extent.createTest(testinfo.getDisplayName());
     }
 
