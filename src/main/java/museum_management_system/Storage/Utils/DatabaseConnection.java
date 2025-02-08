@@ -2,6 +2,7 @@ package museum_management_system.Storage.Utils;
 
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -37,5 +38,9 @@ public class DatabaseConnection implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("Context destroyed. Clean-up operations can be performed here.");
+    }
+
+    public static Connection getConnection() {
+        return connection;
     }
 }

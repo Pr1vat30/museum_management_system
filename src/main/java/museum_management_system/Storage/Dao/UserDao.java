@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UserDao {
 
-    private final Connection connection = DatabaseConnection.connection;
+    private final Connection connection = DatabaseConnection.getConnection();
 
     public User SerchUser(String email, String password) {
         try {
