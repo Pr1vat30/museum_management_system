@@ -4,7 +4,11 @@ import com.google.gson.Gson;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import museum_management_system.Application.Facade.SignupFacade;
+import museum_management_system.Application.Service.SignupService;
+import museum_management_system.Storage.Model.PayMethod;
+import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
+import museum_management_system.Storage.Utils.UserValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +17,7 @@ import java.io.StringReader;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,7 +31,7 @@ public class SignupTest {
         signupFacade = new SignupFacade();
         request = mock(HttpServletRequest.class);
         session = mock(HttpSession.class);
-        DatabaseConnection.StartConnection();
+        //DatabaseConnection.StartConnection();
     }
 
     // TC_VIS_1: LN1 - Username Troppo lungo
@@ -273,18 +278,29 @@ public class SignupTest {
                 "card_secret_code", "234"
         ));
 
-        //Simuliamo la richiesta
+        User existingUser = new User("Giacomo Ricco", "alice@example.com", "Ciao12345@", "1234567890");
+        UserValidator.userList.add(existingUser); // Simuliamo che l'utente esista già nella lista
+
+        // Simuliamo la richiesta
         when(request.getReader()).thenReturn(new BufferedReader(new StringReader(json)));
         when(request.getSession(false)).thenReturn(null); // Nessuna sessione attuale
         when(request.getSession(true)).thenReturn(session); // Nuova sessione
 
+        // Verifica che il risultato sia "error" quando l'email è duplicata
         String result = signupFacade.handleSignup(request);
         assertEquals("error", result);
+
+        // Verifica che l'utente non venga aggiunto alla lista a causa dell'errore
+        assertEquals(1, UserValidator.userList.size());
     }
 
     // TC_VIS_12: LN2, FNN2, LP2, FNP2, MCP2, FNE2, FNT2, FNC2, FND2, FNS2, ME2 - La registrazione va a buon fine
     @Test
     void testValidInput() throws Exception {
+
+        SignupService signupService = mock(SignupService.class);
+        signupFacade = new SignupFacade(signupService);
+
         String json = new Gson().toJson(Map.of(
                 "username", "Giacomo Ricco",
                 "email", "giacomo.ricco@gmail.comm",
@@ -296,10 +312,25 @@ public class SignupTest {
                 "card_secret_code", "234"
         ));
 
+        User user_item = new User(
+                "Giacomo Ricco",
+                "giacomo.ricco@gmail.com",
+                "Ciao12345@",
+                "1234567890"
+        );
+
+        PayMethod payMethod = new PayMethod(
+                "2345897678367382",
+                "11/27",
+                "234"
+        );
+
         //Simuliamo la richiesta
         when(request.getReader()).thenReturn(new BufferedReader(new StringReader(json)));
         when(request.getSession(false)).thenReturn(null); // Nessuna sessione attuale
         when(request.getSession(true)).thenReturn(session); // Nuova sessione
+
+        when(signupService.save(any(), any())).thenReturn(user_item);
 
         String result = signupFacade.handleSignup(request);
         assertEquals("users-nav-servlet?pg=homepage", result);

@@ -5,13 +5,18 @@ import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class UserDao {
 
-    private final Connection connection = DatabaseConnection.getConnection();
+    private final Connection connection;
+
+    public UserDao(Connection connection) {
+        this.connection = connection;
+    }
+
+    public UserDao() {
+        this.connection = DatabaseConnection.connection;
+    }
 
     public User SerchUser(String email, String password) {
         try {

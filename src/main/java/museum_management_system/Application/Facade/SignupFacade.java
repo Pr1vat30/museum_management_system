@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import museum_management_system.Application.Service.SignupService;
 import museum_management_system.Storage.Model.PayMethod;
 import museum_management_system.Storage.Model.User;
+import museum_management_system.Storage.Utils.UserValidator;
 
 import java.io.IOException;
 import java.util.Map;
@@ -13,6 +14,10 @@ import java.util.Map;
 public class SignupFacade {
 
     private final SignupService signupService;
+
+    public SignupFacade(SignupService signupService) {
+        this.signupService = signupService;
+    }
 
     public SignupFacade() {
         this.signupService = new SignupService();
@@ -23,32 +28,42 @@ public class SignupFacade {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
 
         if(jsonMap.get("password").equals(jsonMap.get("c_password"))){
-            User user_item = new User(
-                    (String) jsonMap.get("username"),
-                    (String) jsonMap.get("email"),
-                    (String) jsonMap.get("password"),
-                    (String) jsonMap.get("phone")
-            );
+            try {
+                // Creazione degli oggetti user e payMethod
+                User user_item = new User(
+                        (String) jsonMap.get("username"),
+                        (String) jsonMap.get("email"),
+                        (String) jsonMap.get("password"),
+                        (String) jsonMap.get("phone")
+                );
 
-            PayMethod payMethod = new PayMethod(
-                    (String) jsonMap.get("card_number"),
-                    (String) jsonMap.get("card_expiry_date"),
-                    (String) jsonMap.get("card_secret_code")
-            );
+                PayMethod payMethod = new PayMethod(
+                        (String) jsonMap.get("card_number"),
+                        (String) jsonMap.get("card_expiry_date"),
+                        (String) jsonMap.get("card_secret_code")
+                );
 
-            User user = signupService.save(user_item, payMethod);
+                // Validazione degli oggetti tramite il Validator
+                UserValidator.validateUser(user_item);
+                UserValidator.validatePaymentMethod(payMethod);
 
-            if (user != null) {
-                HttpSession oldSession = request.getSession(false);
-                if (oldSession != null) {
-                    oldSession.invalidate();
+                User user = signupService.save(user_item, payMethod);
+
+                if (user != null) {
+                    HttpSession oldSession = request.getSession(false);
+                    if (oldSession != null) {
+                        oldSession.invalidate();
+                    }
+
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("user", user);
+                    session.setAttribute("logged", true);
+
+                    return "users-nav-servlet?pg=homepage";
                 }
-
-                HttpSession session = request.getSession(true);
-                session.setAttribute("user", user);
-                session.setAttribute("logged", true);
-
-                return "users-nav-servlet?pg=homepage";
+            } catch (IllegalArgumentException e) {
+                System.out.println("Errore di validazione: " + e.getMessage());
+                return "error";
             }
         }
         return "error";
