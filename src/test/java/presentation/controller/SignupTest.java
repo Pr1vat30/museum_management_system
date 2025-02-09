@@ -422,7 +422,6 @@ public class SignupTest {
             when(connection.prepareStatement(anyString())).thenReturn(statement);
             doNothing().when(statement).setString(anyInt(), anyString());
             doNothing().when(statement).setInt(anyInt(), anyInt());
-            //when(statement.executeUpdate()).thenReturn(1);
             when(statement.getGeneratedKeys()).thenReturn(resultSet);
             when(resultSet.next()).thenReturn(true);
             when(resultSet.getInt(anyInt())).thenReturn(1);

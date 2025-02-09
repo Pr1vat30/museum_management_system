@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MessageDao {
 
-    private final Connection connection = DatabaseConnection.connection;
+    private final Connection connection = DatabaseConnection.getConnection();
 
     public List<Message> GetMessages() {
         try {
@@ -17,9 +17,9 @@ public class MessageDao {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             List<Message> messages = new ArrayList<>();
-            if ( !resultSet.next() ){
+            if (!resultSet.next() ){
                 return null;
-            } else do {
+            }else do {
                 Message message = new Message(resultSet.getInt("message_id"),
                         resultSet.getString("message_title"),
                         resultSet.getString("message_object"),
