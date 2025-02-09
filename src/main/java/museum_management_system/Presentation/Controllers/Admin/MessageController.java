@@ -15,7 +15,7 @@ public class MessageController extends HttpServlet {
     private final MessageFacade messageFacade = new MessageFacade();
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         response.setContentType("text/html");
 
         String operation = request.getParameter("op");
@@ -26,13 +26,31 @@ public class MessageController extends HttpServlet {
 
         switch (operation) {
             case "insert_message":
-                messageFacade.insertMessage(request, response);
+                try{
+                    messageFacade.insertMessage(request, response);
+                    response.addHeader("success", "Message inserted successfully");
+                }catch(IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                    response.addHeader("error", e.getMessage());
+                }
                 break;
             case "update_message":
-                messageFacade.updateMessage(request, response);
+                try{
+                    messageFacade.updateMessage(request, response);
+                    response.addHeader("success", "Message updated successfully");
+                }catch(IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                    response.addHeader("error", e.getMessage());
+                }
                 break;
             case "delete_message":
-                messageFacade.deleteMessage(request, response);
+                try{
+                    messageFacade.deleteMessage(request, response);
+                    response.addHeader("success", "Message deleted successfully");
+                }catch(IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                    response.addHeader("error", e.getMessage());
+                }
                 break;
             default:
                 System.out.println("Invalid operation");

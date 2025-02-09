@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import museum_management_system.Application.Service.MessageService;
 import museum_management_system.Storage.Model.Message;
+import museum_management_system.Storage.Utils.MessageValidator;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,13 +22,14 @@ public class MessageFacade {
         this.gson = new Gson();
     }
 
-    public void insertMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void insertMessage(HttpServletRequest request, HttpServletResponse response) throws IOException, IllegalArgumentException {
         Map<String, Object> jsonMap = gson.fromJson(request.getReader(), Map.class);
         Message message = new Message(
                 (String) jsonMap.get("title"),
                 (String) jsonMap.get("object"),
                 (String) jsonMap.get("content")
         );
+        MessageValidator.validateMessage(message);
         List<Message> messages = messageService.save(message);
         sendResponse(response, messages);
     }
@@ -39,6 +41,7 @@ public class MessageFacade {
                 (String) jsonMap.get("object"),
                 (String) jsonMap.get("content")
         );
+        MessageValidator.validateMessage(message);
         message.setMessage_id(Integer.parseInt((String) jsonMap.get("message_id")));
         List<Message> messages = messageService.update(message);
         sendResponse(response, messages);
