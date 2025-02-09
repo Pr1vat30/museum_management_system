@@ -60,7 +60,7 @@ public class SignupFacade {
                     session.setAttribute("logged", true);
 
                     return "users-nav-servlet?pg=homepage";
-                }else{
+                } else{
                     return "error";
                 }
             } catch (IllegalArgumentException e) {

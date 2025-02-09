@@ -26,11 +26,12 @@ public class ShopController extends HttpServlet {
 
         switch (operation) {
             case "insert_purchase":
-                //if(shopFacade.insertPurchase(request))
-                shopFacade.insertPurchase(request);
-                response.getWriter().println("Purchase inserted successfully");
-                //else
-                    //response.getWriter().println("Purchase inserted failed");
+                if(shopFacade.insertPurchase(request)) {
+                    response.getWriter().println("success");
+                }
+                else {
+                    response.getWriter().println("error");
+                }
                 break;
             default:
                 System.out.println("Invalid operation");

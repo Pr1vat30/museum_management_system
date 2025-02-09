@@ -76,19 +76,19 @@ public class UserValidator {
         validateEmail(user.getEmail());
         validatePassword(user.getPassword());
         validatePhoneNumber(user.getPhone());
+        // Controllo se l'utente esiste già nella lista
+        // if (isUserExists(user)) {
+        // throw new IllegalArgumentException("L'utente con questa email esiste già");
+        // }
 
-//        // Controllo se l'utente esiste già nella lista
-//        if (isUserExists(user)) {
-//            throw new IllegalArgumentException("L'utente con questa email esiste già");
-//        }
         // Aggiungi l'utente alla lista se è valido
-        //userList.add(user);
+        // userList.add(user);
     }
 
     // Verifica se l'utente esiste già
-//    private static boolean isUserExists(User user) {
-//        return userList.stream().anyMatch(existingUser -> existingUser.getEmail().equals(user.getEmail()));
-//    }
+    // private static boolean isUserExists(User user) {
+    // return userList.stream().anyMatch(existingUser -> existingUser.getEmail().equals(user.getEmail()));
+    // }
 
     // Validazione del metodo di pagamento
     public static void validatePaymentMethod(PayMethod payMethod) {
