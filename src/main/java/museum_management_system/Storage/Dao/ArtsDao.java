@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ArtsDao {
 
-    private final Connection connection = DatabaseConnection.connection;
+    private final Connection connection = DatabaseConnection.getConnection();
 
     public Art GetArtById(int art_id) {
         try {

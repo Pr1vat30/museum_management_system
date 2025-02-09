@@ -23,23 +23,26 @@ public class ArtsController extends HttpServlet {
         String operation = request.getParameter("op");
         if (operation == null) {
             System.out.println("Invalid operation");
+            response.getWriter().println("error"); // SCRIVE SEMPRE UNA RISPOSTA
             return;
         }
 
-        switch (operation) {
+        String result = "null";
+                switch (operation) {
             case "insert_art":
-                artsFacade.insertArt(getServletContext().getRealPath(""), request, response);
+                result = artsFacade.insertArt(getServletContext().getRealPath(""), request, response);
                 break;
             case "update_art":
                 artsFacade.updateArt(getServletContext().getRealPath(""), request, response);
                 break;
             case "delete_art":
-                artsFacade.deleteArt(request, response);
+               artsFacade.deleteArt(request, response);
                 break;
             default:
                 System.out.println("Invalid operation");
                 break;
         }
+        response.getWriter().println(result);
     }
 
     @Override
