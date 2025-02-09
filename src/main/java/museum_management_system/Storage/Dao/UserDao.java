@@ -42,7 +42,7 @@ public class UserDao {
 
     public User InsertUser(User user, PayMethod payMethod) {
         try {
-            String sql = "INSERT INTO user (user_name, user_password, user_email, user_phone) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO User (user_name, user_password, user_email, user_phone) VALUES (?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
             statement.setString(2, user.getPassword());
