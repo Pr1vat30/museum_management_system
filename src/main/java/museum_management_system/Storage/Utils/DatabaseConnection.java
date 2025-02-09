@@ -9,8 +9,8 @@ import java.sql.DriverManager;
 public class DatabaseConnection implements ServletContextListener {
 
     private static final String URL = "jdbc:mysql://localhost:3306/DbMuseum";
-    private static final String USER = "user";
-    private static final String PASSWORD = "password";
+    private static final String USER = "root";
+    private static final String PASSWORD = "Taxablebunion09@";
 
     public static Connection connection = null;
 
