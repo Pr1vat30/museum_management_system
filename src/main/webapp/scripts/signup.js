@@ -58,7 +58,7 @@ function validateForm(data) {
         return false;
     }
 
-    if ( !data.card_number.match(/^\d{12}$/) ) {
+    if ( !data.card_number.match(/^\d{16}$/) ) {
         Swal.fire({
             icon: "error",
             title: "Oops...",

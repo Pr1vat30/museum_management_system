@@ -8,20 +8,7 @@ import museum_management_system.Storage.Model.User;
 
 public class SignupService {
 
-    public User save(Map<String, Object> jsonMap) {
-        User user = new User(
-                (String) jsonMap.get("username"),
-                (String) jsonMap.get("email"),
-                (String) jsonMap.get("password"),
-                (String) jsonMap.get("phone")
-        );
-
-        PayMethod payMethod = new PayMethod(
-                (String) jsonMap.get("card_number"),
-                (String) jsonMap.get("card_expiry_date"),
-                (String) jsonMap.get("card_secret_code")
-        );
-
+    public User save(User user, PayMethod payMethod) {
         if ( validateUserData(user) ) {
             UserDao dao = new UserDao();
             return dao.InsertUser(user, payMethod);

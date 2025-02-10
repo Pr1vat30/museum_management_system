@@ -49,7 +49,6 @@ public class EventService {
     }
 
     public List<Event> update(Map<String, Object> jsonMap) {
-
         return List.of();
     }
 }

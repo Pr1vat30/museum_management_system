@@ -3,20 +3,10 @@ import museum_management_system.Storage.Dao.StaffDao;
 import museum_management_system.Storage.Model.Staff;
 
 import java.util.List;
-import java.util.Map;
 
 public class StaffService {
 
-    public List<Staff> save(Map<String, Object> jsonMap) {
-        Staff staff = new Staff(
-                (String) jsonMap.get("cf"),
-                (String) jsonMap.get("name"),
-                (String) jsonMap.get("surname"),
-                (String) jsonMap.get("email"),
-                (String) jsonMap.get("password"),
-                Double.parseDouble((String) jsonMap.get("salary")),
-                (String) jsonMap.get("contract")
-        );
+    public List<Staff> save(Staff staff) {
         StaffDao staffDao = new StaffDao();
         staffDao.InsertStaff(staff);
         return staffDao.GetStaff();
@@ -28,17 +18,7 @@ public class StaffService {
         return staffDao.GetStaff();
     }
 
-    public List<Staff> update(Map<String, Object> jsonMap) {
-        Staff staff = new Staff(
-                (String) jsonMap.get("cf"),
-                (String) jsonMap.get("name"),
-                (String) jsonMap.get("surname"),
-                (String) jsonMap.get("email"),
-                (String) jsonMap.get("password"),
-                Double.parseDouble((String) jsonMap.get("salary")),
-                (String) jsonMap.get("contract")
-        );
-        staff.setStaff_id(Integer.parseInt((String) jsonMap.get("staff_id")));
+    public List<Staff> update(Staff staff) {
         StaffDao staffDao = new StaffDao();
         staffDao.UpdateStaff(staff);
         return staffDao.GetStaff();

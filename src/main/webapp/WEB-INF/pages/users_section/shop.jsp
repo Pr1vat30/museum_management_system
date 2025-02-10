@@ -72,6 +72,10 @@
             <input type="hidden" name="ticket_id" id="ticket_id">
             <label id="ticket-type"></label>
             <label id="ticket-price"></label>
+
+            <label> Autenticazione:</label>
+            <input type ="password" placeholder="Password" name ="user_password" id="user_password">
+
             <input type="hidden" name="user_id" id="user_id">
             <button type="submit">Buy</button>
         </form>

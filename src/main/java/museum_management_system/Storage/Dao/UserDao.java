@@ -5,13 +5,18 @@ import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class UserDao {
 
-    private final Connection connection = DatabaseConnection.connection;
+    private final Connection connection;
+
+    public UserDao(Connection connection) {
+        this.connection = connection;
+    }
+
+    public UserDao() {
+        this.connection = DatabaseConnection.getConnection();
+    }
 
     public User SerchUser(String email, String password) {
         try {
@@ -55,7 +60,8 @@ public class UserDao {
             }
             return user;
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.println(ex.getMessage());
+            return null;
         }
     }
 
@@ -66,7 +72,6 @@ public class UserDao {
             statement.setString(2, payMethod.getCard_number());
             statement.setString(3, payMethod.getCard_expiry_date());
             statement.setString(4, payMethod.getCard_secret_code());
-
             statement.executeUpdate();
         }
     }

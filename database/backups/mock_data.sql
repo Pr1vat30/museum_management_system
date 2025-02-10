@@ -1,28 +1,28 @@
 -- Inserisci dati nella tabella User
 INSERT INTO User (user_name, user_password, user_email, user_phone) VALUES
-('Alice', 'password1', 'alice@example.com', '1234567890'),
-('Bob', 'password2', 'bob@example.com', '2345678901'),
-('Charlie', 'password3', 'charlie@example.com', '3456789012'),
-('David', 'password4', 'david@example.com', '4567890123'),
-('Eve', 'password5', 'eve@example.com', '5678901234'),
-('Frank', 'password6', 'frank@example.com', '6789012345'),
-('Grace', 'password7', 'grace@example.com', '7890123456'),
-('Hank', 'password8', 'hank@example.com', '8901234567'),
-('Ivy', 'password9', 'ivy@example.com', '9012345678'),
-('Jack', 'password10', 'jack@example.com', '0123456789');
+('Alice', 'abc123!', 'alice@example.com', '1234567890'),
+('Bob', 'A1b2C3#', 'bob@example.com', '2345678901'),
+('Charlie', '!@#$%^1', 'charlie@example.com', '3456789012'),
+('David', '1234!abc', 'david@example.com', '4567890123'),
+('Eve', 'Zxcvb1@', 'eve@example.com', '5678901234'),
+('Frank', 'qwerty!2', 'frank@example.com', '6789012345'),
+('Grace', '1a2b3c!', 'grace@example.com', '7890123456'),
+('Hank', 'Test#123', 'hank@example.com', '8901234567'),
+('Ivy', 'te@t!9aAc', 'ivy@example.com', '9012345678'),
+('Jack', 'Hello!1', 'jack@example.com', '0123456789');
 
 -- Popola la tabella Payment_method
 INSERT INTO Payment_method (user_id, is_default, card_number, card_expiry_date, card_secret_code) VALUES
-(1, true, '4111111111111111', '12/26', 123),
-(2, true, '4222222222222222', '11/25', 456),
-(3, true, '4333333333333333', '10/24', 789),
-(4, true, '4444444444444444', '09/27', 321),
-(5, true, '4555555555555555', '08/26', 654),
-(6, true, '4666666666666666', '07/25', 987),
-(7, true, '4777777777777777', '06/28', 111),
-(8, true, '4888888888888888', '05/29', 222),
-(9, true, '4999999999999999', '04/30', 333),
-(10, true, '4000000000000000', '03/27', 444);
+(1, true, '1234567890123456', '12/26', 123),
+(2, true, '9876543210987654', '11/25', 456),
+(3, true, '1111222233334444', '10/24', 789),
+(4, true, '5555666677778888', '09/27', 321),
+(5, true, '9999888877776666', '08/26', 654),
+(6, true, '1234123412341234', '07/25', 987),
+(7, true, '5678567856785678', '06/28', 111),
+(8, true, '4321432143214321', '05/29', 222),
+(9, true, '8765876587658765', '04/30', 333),
+(10, true, '1000200030004000', '03/27', 444);
 
 -- Inserisci dati nella tabella Admin
 INSERT INTO Admin (admin_cf, admin_name, admin_surname, admin_email, admin_password) VALUES
