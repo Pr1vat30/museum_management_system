@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import museum_management_system.Application.Service.ArtsService;
 import museum_management_system.Storage.Model.Art;
-import museum_management_system.Storage.Utils.ArtValidator;
+import museum_management_system.Storage.Utils.Validators.ArtValidator;
 
 import java.io.IOException;
 import java.io.PrintWriter;

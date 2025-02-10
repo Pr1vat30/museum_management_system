@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import museum_management_system.Application.Service.MessageService;
 import museum_management_system.Storage.Model.Message;
-import museum_management_system.Storage.Utils.MessageValidator;
+import museum_management_system.Storage.Utils.Validators.MessageValidator;
 
 import java.io.IOException;
 import java.io.PrintWriter;

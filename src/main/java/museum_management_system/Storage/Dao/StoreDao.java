@@ -11,7 +11,11 @@ import java.util.List;
 
 public class StoreDao {
 
-    private final Connection connection = DatabaseConnection.connection;
+    private Connection connection;
+
+    public StoreDao() {
+        this.connection = DatabaseConnection.getConnection();
+    }
 
     public List<StoreItem> GetStore() {
         try {

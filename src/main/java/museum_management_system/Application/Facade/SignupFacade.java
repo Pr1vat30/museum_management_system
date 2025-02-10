@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import museum_management_system.Application.Service.SignupService;
 import museum_management_system.Storage.Model.PayMethod;
 import museum_management_system.Storage.Model.User;
-import museum_management_system.Storage.Utils.UserValidator;
+import museum_management_system.Storage.Utils.Validators.UserValidator;
 
 import java.io.IOException;
 import java.util.Map;

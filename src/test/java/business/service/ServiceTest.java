@@ -6,6 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServiceTest {
     @Test
     public void testAddition() {
-        assertEquals(4, 2 + 2);
+        assertEquals(10, 5 + 5);
     }
 }

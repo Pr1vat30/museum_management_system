@@ -1,10 +1,8 @@
-package museum_management_system.Storage.Utils;
+package museum_management_system.Storage.Utils.Validators;
 
 import museum_management_system.Storage.Model.PayMethod;
 import museum_management_system.Storage.Model.User;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class UserValidator {

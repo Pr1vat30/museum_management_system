@@ -4,13 +4,8 @@ import com.google.gson.Gson;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import museum_management_system.Application.Facade.SignupFacade;
-import museum_management_system.Application.Service.SignupService;
 import museum_management_system.Presentation.Controllers.SignupController;
-import museum_management_system.Storage.Model.PayMethod;
-import museum_management_system.Storage.Model.User;
 import museum_management_system.Storage.Utils.DatabaseConnection;
-import museum_management_system.Storage.Utils.UserValidator;
 import org.junit.jupiter.api.*;
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -30,6 +25,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class SignupTest {
+
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;

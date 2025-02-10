@@ -11,10 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
-import museum_management_system.Presentation.Controllers.SignupController;
 import museum_management_system.Presentation.Controllers.Staff.ArtsController;
-import museum_management_system.Storage.Dao.ArtsDao;
-import museum_management_system.Storage.Model.Art;
 import museum_management_system.Storage.Utils.DatabaseConnection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,13 +23,11 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
-public class InsertArtTest {
+public class ArtTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;
