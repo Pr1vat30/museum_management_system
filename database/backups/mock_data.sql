@@ -26,29 +26,29 @@ INSERT INTO Payment_method (user_id, is_default, card_number, card_expiry_date, 
 
 -- Inserisci dati nella tabella Admin
 INSERT INTO Admin (admin_cf, admin_name, admin_surname, admin_email, admin_password) VALUES
-('CFADMIN001', 'Laura', 'Rossi', 'laura.rossi.admin@example.com', 'adminpass1'),
-('CFADMIN002', 'Marco', 'Bianchi', 'marco.bianchi.admin@example.com', 'adminpass2'),
-('CFADMIN003', 'Sophia', 'Verdi', 'sophia.verdi.admin@example.com', 'adminpass3'),
-('CFADMIN004', 'Luca', 'Neri', 'luca.neri.admin@example.com', 'adminpass4'),
-('CFADMIN005', 'Anna', 'Gialli', 'anna.gialli.admin@example.com', 'adminpass5'),
-('CFADMIN006', 'Giorgio', 'Blu', 'giorgio.blu.admin@example.com', 'adminpass6'),
-('CFADMIN007', 'Chiara', 'Viola', 'chiara.viola.admin@example.com', 'adminpass7'),
-('CFADMIN008', 'Enrico', 'Grigi', 'enrico.grigi.admin@example.com', 'adminpass8'),
-('CFADMIN009', 'Paola', 'Rosa', 'paola.rosa.admin@example.com', 'adminpass9'),
-('CFADMIN010', 'Giovanni', 'Marroni', 'giovanni.marroni.admin@example.com', 'adminpass10');
+('CFADMIN001', 'Laura', 'Rossi', 'laura.rossi.admin@example.com', 'AdminPass1!'),
+('CFADMIN002', 'Marco', 'Bianchi', 'marco.bianchi.admin@example.com', 'AdminPass2@'),
+('CFADMIN003', 'Sophia', 'Verdi', 'sophia.verdi.admin@example.com', 'AdminPass3#'),
+('CFADMIN004', 'Luca', 'Neri', 'luca.neri.admin@example.com', 'AdminPass4$'),
+('CFADMIN005', 'Anna', 'Gialli', 'anna.gialli.admin@example.com', 'AdminPass5%'),
+('CFADMIN006', 'Giorgio', 'Blu', 'giorgio.blu.admin@example.com', 'AdminPass6^'),
+('CFADMIN007', 'Chiara', 'Viola', 'chiara.viola.admin@example.com', 'AdminPass7&'),
+('CFADMIN008', 'Enrico', 'Grigi', 'enrico.grigi.admin@example.com', 'AdminPass8*'),
+('CFADMIN009', 'Paola', 'Rosa', 'paola.rosa.admin@example.com', 'AdminPass9!'),
+('CFADMIN010', 'Giovanni', 'Marroni', 'giovanni.marroni.admin@example.com', 'AdminPass10@');
 
--- Inserisci dati nella tabella Staff (senza staff_role)
+-- Inserisci dati nella tabella Staff
 INSERT INTO Staff (staff_cf, staff_name, staff_surname, staff_email, staff_password, staff_salary, type_contract) VALUES
-('CFSTAFF001', 'Tom', 'Smith', 'tom.smith.staff@example.com', 'staffpass1', 2000.50, 'Full-time'),
-('CFSTAFF002', 'Jerry', 'Brown', 'jerry.brown.staff@example.com', 'staffpass2', 1800.00, 'Part-time'),
-('CFSTAFF003', 'Lucy', 'Johnson', 'lucy.johnson.staff@example.com', 'staffpass3', 2200.75, 'Full-time'),
-('CFSTAFF004', 'Mia', 'Davis', 'mia.davis.staff@example.com', 'staffpass4', 1900.00, 'Part-time'),
-('CFSTAFF005', 'John', 'Miller', 'john.miller.staff@example.com', 'staffpass5', 2100.00, 'Full-time'),
-('CFSTAFF006', 'Daisy', 'Wilson', 'daisy.wilson.staff@example.com', 'staffpass6', 1700.25, 'Stage'),
-('CFSTAFF007', 'Liam', 'Moore', 'liam.moore.staff@example.com', 'staffpass7', 2500.00, 'Full-time'),
-('CFSTAFF008', 'Sophia', 'Taylor', 'sophia.taylor.staff@example.com', 'staffpass8', 1800.75, 'Part-time'),
-('CFSTAFF009', 'Olivia', 'Anderson', 'olivia.anderson.staff@example.com', 'staffpass9', 2300.00, 'Full-time'),
-('CFSTAFF010', 'Emma', 'Thomas', 'emma.thomas.staff@example.com', 'staffpass10', 2400.50, 'Full-time');
+('CFSTAFF001', 'Tom', 'Smith', 'tom.smith.staff@example.com', 'StaffPass1!', 2000.50, 'Full-time'),
+('CFSTAFF002', 'Jerry', 'Brown', 'jerry.brown.staff@example.com', 'StaffPass2@', 1800.00, 'Part-time'),
+('CFSTAFF003', 'Lucy', 'Johnson', 'lucy.johnson.staff@example.com', 'StaffPass3#', 2200.75, 'Full-time'),
+('CFSTAFF004', 'Mia', 'Davis', 'mia.davis.staff@example.com', 'StaffPass4$', 1900.00, 'Part-time'),
+('CFSTAFF005', 'John', 'Miller', 'john.miller.staff@example.com', 'StaffPass5%', 2100.00, 'Full-time'),
+('CFSTAFF006', 'Daisy', 'Wilson', 'daisy.wilson.staff@example.com', 'StaffPass6^', 1700.25, 'Stage'),
+('CFSTAFF007', 'Liam', 'Moore', 'liam.moore.staff@example.com', 'StaffPass7&', 2500.00, 'Full-time'),
+('CFSTAFF008', 'Sophia', 'Taylor', 'sophia.taylor.staff@example.com', 'StaffPass8*', 1800.75, 'Part-time'),
+('CFSTAFF009', 'Olivia', 'Anderson', 'olivia.anderson.staff@example.com', 'StaffPass9!', 2300.00, 'Full-time'),
+('CFSTAFF010', 'Emma', 'Thomas', 'emma.thomas.staff@example.com', 'StaffPass10@', 2400.50, 'Full-time');
 
 -- Inserisci dati nella tabella Message
 INSERT INTO Message (message_title, message_object, message_content, send_date) VALUES
